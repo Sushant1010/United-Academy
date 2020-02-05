@@ -1,0 +1,153 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.InventoryPurchaseVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Purchase List</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">From</span>
+                        @Html.TextBox("FromDate", "", new { @class = "form-control EngDate" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">From BS</span>
+                        @Html.TextBox("FromDateBS", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">To</span>
+                        @Html.TextBox("ToDate", "", new { @class = "form-control EngDate" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">To BS</span>
+                        @Html.TextBox("ToDateBS", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Bill No</span>
+                        @Html.TextBox("BillNo", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                
+                <div class="col-sm-3" id="Staff">
+                    <div class="input-group">
+                        <span class="input-group-addon">Vendor</span>
+                        @Html.DropDownList("VendorId", null, "-- Select --", new { @class = "form-control select2 VendorId" })
+
+                        @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                    </div>
+                </div>
+
+            </div>
+                
+                <div class="form-group row">
+
+                    <div class="col-sm-1"><input type="submit" class="btn btn-primary" value="Search" /></div>
+                </div>
+            }
+        </div>
+        <div class="box-body">
+            <table class="table table-condensed table-bordered" id="TableExport4">
+                <thead>
+                    <tr class="btn-primary">
+                        <th>S.N.</th>
+                        <th>
+                            Bill Date
+                        </th>
+                        <th>
+                            BillNo
+                        </th>
+
+                        <th>Vendor</th>
+                        <th>Old Stock</th>
+                        <th>Amount</th>
+                        <th class="hidden">Enter Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        decimal amt = 0;
+                        int i = 1;
+                    }
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@i</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BillDateBS) <br />
+                            @((item.BillDate.Value).ToString("yyyy-MM-dd"))
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BillNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorName)
+                        </td>
+                        <td>
+                            @{
+                                if (item.IsPreviousStock == null || item.IsPreviousStock == false)
+                                {
+                                    <span class="label label-danger">No</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-primary">Yes</span>
+                                }
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalWithVat)
+                        </td>
+                        <td class="hidden">
+                            @item.EnteredDate
+                        </td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.PurchaseId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+                            @Html.ActionLink(" ", "Details", new { id = item.PurchaseId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+                            @Html.ActionLink(" ", "Delete", new { id = item.PurchaseId }, new { @class = "fa fa-trash-o text-danger", title = "Delete", onclick = "return confirm('Are you sure to Delete?')" })
+                        </td>
+                    </tr>
+                        amt += item.TotalWithVat == null?0: (Decimal)item.TotalWithVat;
+                                    i++;
+                    }
+                </tbody>
+                @if (Model.Count() > 0)
+                {
+                <tfoot>
+                    <tr>
+                        <td colspan="4"></td>
+                        <th><strong>Total Amount: </strong></th>
+                        <th>@amt</th>
+                        <td></td>
+                    </tr>
+
+                </tfoot>
+                }
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    
+</script>

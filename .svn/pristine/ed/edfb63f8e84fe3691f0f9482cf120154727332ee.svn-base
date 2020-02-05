@@ -1,0 +1,226 @@
+﻿@model United_IMS.Web.ViewModel.AssetTransferVM
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Transfer Edit</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null,new{@class="fa fa-arrow-left"})</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+    <div class="box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.AssetTransferId)
+            @Html.HiddenFor(model => model.AssetId)
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @*@Html.TextBoxFor(model => model.AssetId, new { @class = "form-control" })*@
+                    @Html.LabelFor(model => model.CategoryName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @* @Html.DropDownList("CategoryId", null, "-- Select --", new { @class = "form-control select2 CategoryId" })*@
+                    @Html.DropDownList("CategoryId", null, "-- Select --", new { @class = "form-control select2", onchange = "GetItem()", required = "required" })
+                    @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssetItemId, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("AssetItemId", null, "-- Select --", new { @class = "form-control select2" })
+                    @* @Html.TextBoxFor(model => model.AssetName, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.AssetItemId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.OrganizationName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("OrganizationId", null, "-- Select --", new { @class = "form-control select2", required = "required", onchange = "GetBranchLocation()" })
+                    @*@Html.TextBoxFor(model => model.OrganizationName, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.OrganizationName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.BranchId, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("BranchId", null, "-- Select --", new { @class = "form-control select2", disabled = "disabled" })
+                    @*@Html.TextBoxFor(model => model.BranchName, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.LocationId, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @*@Html.DropDownList("LocationId", null, "-- Select --", new { @class = "form-control select2" })*@
+                    @Html.DropDownListFor(model => model.LocationId, null, "-- Select --", new { @class = "form-control select2", disabled = "disabled" })
+                    @*@Html.TextBoxFor(model => model.LocationName, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.TransferDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.TransferDate, "{0:yyyy-MM-dd}", new { @class = "form-control EngDate"  })
+                    @Html.ValidationMessageFor(model => model.TransferDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.TransferDateBS, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.TransferDateBS, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TransferDateBS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.Remarks, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.Remarks, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssignedTo, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("FullName", null, "-- Select --", new { @class = "form-control select2" })
+                    @* @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssignedDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.AssignedDate, "{0:yyyy-MM-dd}", new { @class = "form-control EngDate" })
+                    @Html.ValidationMessageFor(model => model.AssignedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+</section>
+<script>
+    $('#TransferDate').change(function () {
+        $('#TransferDateBS').val(AD2BS($('#TransferDate').val()));
+    });
+
+    $('#TransferDateBS').nepaliDatePicker({
+        ndpEnglishInput: 'TransferDate'
+    });
+     function GetItem()
+    {
+         var cat = $("#CategoryId").val();
+
+        $.ajax({
+                url: "@Url.Action("GetItemByCategoryTransfer", "Utility")",
+            type: "post",
+            data: { catid: cat},
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#AssetItemId");//district dropdown.
+                $select.empty();
+                $select.append(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
+<script>
+    function GetBranchLocation() {
+        var orgID = $("#OrganizationId").val();
+        $.ajax({
+            url: "@Url.Action("GetBranchByOrgID", "Utility")",
+            type: "post",
+            data: { orgaID: orgID },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#BranchId");//district dropdown.
+                $select.empty();
+                $select.append(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+        $.ajax({
+            url: "@Url.Action("GetLocationByOrgID", "Utility")",
+            type: "post",
+            data: { orgaID: orgID },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#LocationId");//district dropdown.
+                $select.empty();
+                $select.append(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+
+        //disabled destination LocationID and BranchID
+        var Linput = document.getElementById("LocationId");
+        var Binput = document.getElementById("BranchId");
+        Linput.disabled = false;
+        Binput.disabled = false;
+
+        
+
+        $.ajax({
+            url: "@Url.Action("GetUserByOrgID", "Utility")",
+            type: "post",
+            data: { orgaID: orgID },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#FullName");//district dropdown.
+                $select.empty();
+                $select.append(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
+

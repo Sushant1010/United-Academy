@@ -1,0 +1,114 @@
+﻿@model United_IMS.Web.Models.SC_User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>Edit User</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.UserId)
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.FullName, "Full Name", new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", Required = "Required" })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", Required = "Required" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.OrganizationId, "Organization", new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.OrganizationId, new { @class = "form-control", Required = "Required" })
+                        @Html.ValidationMessageFor(model => model.OrganizationId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.IsAdmin, "Is Admin?", new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            @if (Model.IsAdmin == true)
+                            {
+                                @Html.RadioButton("IsAdmin", "Y", true)<span>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</span>
+                                @Html.RadioButton("IsAdmin", "N", false)<span>&nbsp;&nbsp;&nbsp;No</span>
+                            }
+                            else
+                            {
+                                @Html.RadioButton("IsAdmin", "Y", false)<span>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</span>
+                                @Html.RadioButton("IsAdmin", "N", true)<span>&nbsp;&nbsp;&nbsp;No</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            @if (Model.IsActive == true)
+                            {
+                                @Html.RadioButton("IsActive", "Y", true)<span>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</span>
+                                @Html.RadioButton("IsActive", "N", false)<span>&nbsp;&nbsp;&nbsp;No</span>
+                            }
+                            else
+                            {
+                                @Html.RadioButton("IsActive", "Y", false)<span>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</span>
+                                @Html.RadioButton("IsActive", "N", true)<span>&nbsp;&nbsp;&nbsp;No</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

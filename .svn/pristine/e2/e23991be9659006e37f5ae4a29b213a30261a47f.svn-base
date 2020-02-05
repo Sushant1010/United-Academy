@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\AMSoft\PUBLISH</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="assets/css/AdminLTE.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/bootstrap-datepicker.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/bootstrap.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/dataTables.bootstrap.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/font-awesome.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/ionicons.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/nepali.datepicker.v2.2.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/css/_all-skins.min.css">
+      <publishTime>07/15/2019 11:04:52</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.eot">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.svg">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.ttf">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.woff">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.woff2">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/FontAwesome.otf">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/ionicons.eot">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/ionicons.svg">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/ionicons.ttf">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/fonts/ionicons.woff">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/js/12nepali.datepicker.v2.2.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/adminlte.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/bootstrap-datepicker.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/bootstrap.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/customjavascript.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/dataTables.bootstrap.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/demo.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/fastclick.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/jquery.dataTables.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/jquery.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/jquery.slimscroll.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/js/nepali.datepicker.v2.2.min.js">
+      <publishTime>07/15/2019 11:04:54</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/all.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/aero%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/aero.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/aero.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/blue%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/blue.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/blue.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/flat%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/flat.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/flat.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/green%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/green.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/green.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/grey%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/grey.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/grey.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/orange%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/orange.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/orange.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/pink%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/pink.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/pink.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/purple%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/purple.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/purple.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/red%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/red.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/red.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/yellow%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/yellow.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/yellow.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/flat/_all.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/futurico/futurico%402x.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/futurico/futurico.css">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/futurico/futurico.png">
+      <publishTime>07/15/2019 11:05:09</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/icheck.js">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/icheck.min.js">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/aero.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/blue.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/green.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/grey.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/line%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/line.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/line.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/orange.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/pink.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/purple.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/red.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/yellow.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/line/_all.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/aero%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/aero.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/aero.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/blue%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/blue.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/blue.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/green%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/green.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/green.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/grey%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/grey.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/grey.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/minimal%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/minimal.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/minimal.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/orange%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/orange.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/orange.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/pink%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/pink.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/pink.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/purple%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/purple.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/purple.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/red%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/red.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/red.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/yellow%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/yellow.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/yellow.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/minimal/_all.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/polaris/polaris%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/polaris/polaris.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/polaris/polaris.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/aero%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/aero.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/aero.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/blue%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/blue.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/blue.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/green%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/green.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/green.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/grey%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/grey.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/grey.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/orange%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/orange.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/orange.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/pink%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/pink.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/pink.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/purple%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/purple.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/purple.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/red%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/red.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/red.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/square%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/square.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/square.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/yellow%402x.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/yellow.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/yellow.png">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="assets/plugins/iCheck/square/_all.css">
+      <publishTime>07/15/2019 11:05:10</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>07/15/2019 11:06:56</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>07/15/2019 11:06:56</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>07/15/2019 11:01:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>07/15/2019 11:06:48</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>07/15/2019 11:06:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>07/15/2019 11:07:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>07/15/2019 11:07:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>07/15/2019 11:07:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>07/15/2019 11:07:55</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>07/15/2019 11:07:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>07/15/2019 11:07:53</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>07/15/2019 11:07:05</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/15/2019 11:08:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/15/2019 11:10:18</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/15/2019 11:10:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>07/15/2019 11:10:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>07/15/2019 11:10:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>07/15/2019 11:10:17</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>07/15/2019 11:10:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/15/2019 11:08:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/15/2019 11:08:01</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>07/15/2019 11:08:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/15/2019 11:08:09</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/15/2019 11:08:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/15/2019 11:08:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/15/2019 11:08:25</publishTime>
+    </File>
+    <File Include="bin/United_IMS.Web.dll">
+      <publishTime>07/19/2019 11:55:47</publishTime>
+    </File>
+    <File Include="bin/United_IMS.Web.pdb">
+      <publishTime>07/19/2019 11:55:47</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/15/2019 11:11:05</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiControllerEmpty/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiControllerEmpty/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiControllerWithActions/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiControllerWithActions/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiControllerWithContext/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiControllerWithContext/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiDependencyCodeGenerator/Global.asax.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiDependencyCodeGenerator/Global.asax.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiDependencyCodeGenerator/Global.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiDependencyCodeGenerator/Global.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiDependencyCodeGenerator/WebApiConfig.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/ApiDependencyCodeGenerator/WebApiConfig.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/AssemblyVersions.xml">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcArea/Area.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcArea/Area.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcArea/web.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcArea/web.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcControllerEmpty/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcControllerEmpty/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcControllerWithActions/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcControllerWithActions/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcControllerWithContext/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcControllerWithContext/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/BundleConfig.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/BundleConfig.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Error.cshtml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Error.vbhtml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/FilterConfig.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/FilterConfig.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Global.asax.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Global.asax.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Global.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Global.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/RouteConfig.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/RouteConfig.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Site.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/Site.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/web.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/web.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/_Layout.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/_Layout.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/_ViewStart.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcFullDependencyCodeGenerator/_ViewStart.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/Global.asax.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/Global.asax.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/Global.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/Global.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/RouteConfig.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/RouteConfig.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/web.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcMinimalDependencyCodeGenerator/web.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Create.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Create.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Delete.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Delete.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Details.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Details.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Edit.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Edit.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Empty.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Empty.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/Imports.include.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/List.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/List.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/ModelMetadataFunctions.cs.include.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcView/ModelMetadataFunctions.vb.include.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcViewWithoutModel/Empty.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcViewWithoutModel/Empty.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/MvcViewWithoutModel/Imports.include.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/ODataControllerWithActions/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/ODataControllerWithActions/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/ODataControllerWithContext/Controller.cs.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/ODataControllerWithContext/Controller.vb.t4">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.0.0.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.1.0.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.1.1.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.1.2.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.2.0.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.2.2.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="CodeTemplates/PackageVersions5.2.3.xml">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>07/15/2019 11:05:18</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>07/15/2019 11:05:18</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>07/15/2019 11:05:18</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>07/15/2019 11:05:18</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>07/15/2019 11:05:18</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>07/15/2019 11:05:18</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/15/2019 11:05:17</publishTime>
+    </File>
+    <File Include="Scripts/ai.0.22.9-build00167.js">
+      <publishTime>07/15/2019 11:05:15</publishTime>
+    </File>
+    <File Include="Scripts/ai.0.22.9-build00167.min.js">
+      <publishTime>07/15/2019 11:05:15</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>07/15/2019 11:05:15</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>07/15/2019 11:05:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>07/15/2019 11:05:16</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>07/15/2019 11:05:15</publishTime>
+    </File>
+    <File Include="Views/AcademicBatch/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicBatch/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicBatch/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicBatch/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicBatch/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClass/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClass/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClass/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClass/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClass/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClassSection/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClassSection/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClassSection/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClassSection/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicClassSection/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicProgram/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicProgram/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicProgram/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicProgram/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicProgram/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicSection/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicSection/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicSection/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicSection/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicSection/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicStudent/AssignSection.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AcademicStudent/Create.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AcademicStudent/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AcademicStudent/Details.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AcademicStudent/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AcademicStudent/Index.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AcademicTeacher/Create.cshtml">
+      <publishTime>07/17/2019 15:49:44</publishTime>
+    </File>
+    <File Include="Views/AcademicTeacher/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/AcademicTeacher/Details.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/AcademicTeacher/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/AcademicTeacher/Index.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/AcademicYear/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicYear/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicYear/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicYear/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/AcademicYear/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Asset/Create.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Asset/Details.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Asset/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Asset/Index.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/AssetCategory/Create.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetCategory/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetCategory/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetCategory/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetCategory/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetItem/Create.cshtml">
+      <publishTime>07/19/2019 11:05:06</publishTime>
+    </File>
+    <File Include="Views/AssetItem/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetItem/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetItem/Edit.cshtml">
+      <publishTime>07/19/2019 11:47:21</publishTime>
+    </File>
+    <File Include="Views/AssetItem/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/AssetPurchase/Create.cshtml">
+      <publishTime>07/18/2019 16:52:06</publishTime>
+    </File>
+    <File Include="Views/AssetPurchase/Details.cshtml">
+      <publishTime>07/18/2019 17:16:17</publishTime>
+    </File>
+    <File Include="Views/AssetPurchase/Edit.cshtml">
+      <publishTime>07/18/2019 17:14:50</publishTime>
+    </File>
+    <File Include="Views/AssetPurchase/Index.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AssetTransfer/Create.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AssetTransfer/Details.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AssetTransfer/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/AssetTransfer/Index.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/Branch/Create.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Branch/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Branch/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Branch/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Branch/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Category/Create.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Category/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Category/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Category/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Category/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Dashboard/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Department/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Department/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Department/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Department/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Department/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/DepreciationMethod/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/DepreciationMethod/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/DepreciationMethod/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/DepreciationMethod/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/DepreciationMethod/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/InventoryPurchase/Create.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/InventoryPurchase/Details.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/InventoryPurchase/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/InventoryPurchase/Index.cshtml">
+      <publishTime>07/15/2019 10:59:50</publishTime>
+    </File>
+    <File Include="Views/InventorySales/BulkCreate.cshtml">
+      <publishTime>07/18/2019 14:08:16</publishTime>
+    </File>
+    <File Include="Views/InventorySales/Create.cshtml">
+      <publishTime>07/16/2019 16:39:30</publishTime>
+    </File>
+    <File Include="Views/InventorySales/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/InventorySales/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/InventorySales/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/InventoryVendor/Create.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/InventoryVendor/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/InventoryVendor/Details.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/InventoryVendor/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/InventoryVendor/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Item/Create.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Item/Details.cshtml">
+      <publishTime>07/17/2019 16:41:00</publishTime>
+    </File>
+    <File Include="Views/Item/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Item/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Location/Create.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Location/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Location/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Location/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Location/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Login/Index.cshtml">
+      <publishTime>07/15/2019 10:59:52</publishTime>
+    </File>
+    <File Include="Views/Profile/ChangePassword.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Profile/Details.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Profile/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Report/DetailedSummarySalesReport.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Report/SummarySalesReport.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>07/18/2019 16:24:10</publishTime>
+    </File>
+    <File Include="Views/Unit/Create.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Unit/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Unit/Details.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Unit/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/Unit/Index.cshtml">
+      <publishTime>07/15/2019 10:59:51</publishTime>
+    </File>
+    <File Include="Views/User/Create.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/User/Delete.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/User/Details.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/User/Edit.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/User/Index.cshtml">
+      <publishTime>07/15/2019 10:59:49</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>07/15/2019 10:59:53</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>07/15/2019 10:59:53</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/17/2019 16:12:17</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

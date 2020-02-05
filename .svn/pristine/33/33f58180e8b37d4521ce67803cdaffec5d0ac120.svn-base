@@ -1,0 +1,214 @@
+﻿@model United_IMS.Web.ViewModel.InventoryPurchaseDetail
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+
+}
+
+<section class="content-header">
+    <h1>Purchase Detail</h1>
+    <ol class="breadcrumb">
+    <li class="list">@Html.ActionLink("Edit", "Edit", "InventoryPurchase",new {Id=Model.InventoryPurchase.PurchaseId }, new { @class = "btn btn-xs btn-success" })</li>
+    <li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">S.N.</span>
+                        @if (ViewBag.BSN != null)
+                        {
+                            @Html.TextBox("BillSerialNo", (int)ViewBag.BSN, new { @class = "form-control", @readonly = "readonly" })
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">BillDate</span>
+                        @Html.TextBox("BillDate", Model.InventoryPurchase.BillDate, "{0:yyyy-MM-dd}", new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Bill Date BS</span>
+                        @Html.TextBox("BillDateBS", Model.InventoryPurchase.BillDateBS, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Bill No</span>
+                        @Html.TextBox("BillNo", Model.InventoryPurchase.BillNo, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <span class="input-group-addon">Vendor</span>
+                        @Html.TextBox("VendorId", Model.InventoryPurchase.VendorName, new { @class = "form-control", disabled = "disabled" })
+
+                        @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1">
+                    Old Stock
+                </div>
+
+                <div class="col-sm-2">
+                    @Html.RadioButton("IsPreviousStock", "Yes", Model.InventoryPurchase.IsPreviousStock != null && Model.InventoryPurchase.IsPreviousStock == true ? true : false) <span>Yes &nbsp; &nbsp;</span>
+                    @Html.RadioButton("IsPreviousStock", "No", Model.InventoryPurchase.IsPreviousStock != null && Model.InventoryPurchase.IsPreviousStock == true ? false : true) <span>No &nbsp; &nbsp;</span>
+
+                </div>
+            </div>
+
+            <div class="form-group row col-sm-12">
+                <table class="table table-bordered table-condensed unittable" id="ItemUnit">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th class="col-sm-4">Item</th>
+                            <th class="col-sm-3">Quantity</th>
+                            <th class="col-sm-3">Rate</th>
+                            <th class="col-sm-1">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1; }
+                        @foreach (var item in Model.InventoryPurchaseItems)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td class="col-sm-4">
+
+
+                                    <label>@item.ItemName</label>
+
+
+
+                                </td>
+                                <td class="col-sm-3 center-fix" style="text-align:center;">
+                                    <label>@item.Quantity </label>
+                                </td>
+
+                                <td class="col-sm-1 center-fix" style="text-align:center;">
+                                    <label>@item.Rate</label>
+                                </td>
+
+                                <td class="col-sm-3 center-fix" style="text-align:center;">
+                                    <label>@item.Total </label>
+                                </td>
+                                <td class="col-sm-1 center-fix" style="text-align:center;"></td>
+                            </tr>
+                            i++;
+                        }
+                    </tbody>
+                    <tfoot>
+                        @*<tr>
+                        <td colspan="5"><span onclick="addItem()" style="cursor:pointer;width:80px;" class="btn btn-primary"><i class="fa fa-plus" style="padding-right:5px;"></i>Add</span></td>
+                    </tr>*@
+                    </tfoot>
+                </table>
+
+            </div>
+            <div class="">
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Total Amount</span>
+                            @*onblur="GetTotal(' + crowindex + ')"*@
+                            @*<input type="text" value="" class="form-control" />*@
+                            @Html.TextBox("TotalAmount", Model.InventoryPurchase.TotalAmount, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model.InventoryPurchase.VatApplicable.Value)
+                {
+                    <div id="VatDiv">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">VAT Percent</span>
+                                    <input type="text" id="VATPercent" name="VATPercent" value="@Model.InventoryPurchase.VATPercent" class="form-control" disabled="disabled" />
+                                    @*@Html.TextBox("VAT", "",new { @class = "form-control" })*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">VAT Amount</span>
+                                    <input type="text" id="VatAmount" value="@Model.InventoryPurchase.VatAmount" name="VatAmount" class="form-control grandamount" disabled="disabled" />
+                                    @*@Html.TextBox("VAT", "",new { @class = "form-control" })*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="form-group row">
+
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon" value="0">Grand Total</span>
+                            @*<input type="text" value="0" class="form-control"/>*@
+                            @Html.TextBox("TotalWithVat", Model.InventoryPurchase.TotalWithVat, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+@*<script>
+        $(function () {
+            $(".unittable").on("click", "tr a", function (e) {
+                e.preventDefault();
+                if (confirm("Are you sure to remove?")) {
+                    $(this).parents('tr').remove();
+
+                }
+            });
+        });
+
+        var crowindex = @((Model.Units).Count()+1);
+        function addItem() {
+            msg = '<tr>';
+
+            msg += '<td class="col-sm-4"><input type="hidden" name="hddrowpindex" value="' + crowindex + '" class="rowcount" /><input type="hidden" name="ItemUnitId-' + crowindex +'" value="0" class="rowcount" />';
+            msg += '<select  class="' + crowindex + ' userinput" style="text-transform:uppercase; width:100%" name="UnitId-' + crowindex + '" id="UnitId-' + crowindex + '"  disabled="disabled" >';
+            msg += document.getElementById("hddUnit").value;
+            msg += ' </select>';
+            msg += '</td>';
+            msg += '<td class="col-sm-3 center-fix" style="text-align:center;">';
+            msg += '<input type="text" class="form-control" name="SellingPrice-' + crowindex + '" id="SellingPrice-' + crowindex + '" disabled="disabled" value="0" />';
+            msg += '</td>';
+            msg += ' <td class="col-sm-1 center-fix" style="text-align:center;"><input type="checkbox" name="IsDefault-' + crowindex + '" id="IsDefault-' + crowindex + '"/></td>';
+            msg += ' <td class="col-sm-3 center-fix" style="text-align:center;"><input type="text" class="form-control" name="QuantityPer-' + crowindex + '" id="QuantityPer-' + crowindex + '" disabled="disabled" value="1" /></td>';
+
+            msg += '<td class="col-sm-1 center-fix" style="text-align:center;"><a href="" class="btn" title="Remove"><span id="remove-' + crowindex + '"  style="cursor:pointer"><i class="fa fa-times"></i></span></a></td>';
+            //msg += '&nbsp;<span id="perror-' + crowindex + '" style="display:none"><i class="fa fa-exclamation-triangle faa-exclamation-triangle animated"></i></span></td>';
+
+            msg += '</tr>';
+
+
+            $('table#ItemUnit  tbody').append(msg);
+            initializeSelectNew(crowindex);
+
+            crowindex++;
+        }
+    </script>*@

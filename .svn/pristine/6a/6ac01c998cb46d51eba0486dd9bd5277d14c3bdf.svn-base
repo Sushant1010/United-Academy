@@ -1,0 +1,64 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.AcademicProgramVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>List Index</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>
+            Program Name
+        </th>
+        <th>
+            Program Code
+        </th>
+        <th>
+           Organization Name
+        </th>
+        <th>
+            Started Date
+        </th>
+        <th>
+            Started Date BS
+        </th>
+        
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizationName)
+        </td>
+        <td>
+            @(item.StartedDate!=null? ((DateTime)item.StartedDate).ToString("yyyy-MM-dd"):"")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartedDateBS)
+        </td>
+        
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.ProgramId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+			@Html.ActionLink(" ", "Details", new { id = item.ProgramId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+			@Html.ActionLink(" ", "Delete", new { id = item.ProgramId }, new { @class = "fa fa-trash-o text-danger", title = "Delete",onclick="return confirm('Are you sure to Delete?')" }) 
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+</div>
+</section>

@@ -1,0 +1,197 @@
+﻿@model United_IMS.Web.Models.ACD_Student
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Student Edit</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+   
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.StudentId)
+
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label class="control-label" for="StudentName">Student Name</label>
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.StudentName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.StudentRegNo, "Student Reg No", new { @class = "control-label" })
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.StudentRegNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.StudentRegNo, "", new { @class = "text-danger" })
+        </div>
+        @*<div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.Gender,"Gender", new { @class = "control-label" })
+            </div>
+        <div class="col-md-3">
+            @Html.RadioButton("Gender", "Male", Model.Gender == "Male" ? true : false) <span>&nbsp;&nbsp;&nbsp;Male</span>&nbsp;&nbsp;&nbsp;
+            @Html.RadioButton("Gender", "Female", Model.Gender == "Male" ? false : true) <span>&nbsp;&nbsp;&nbsp;Female</span>
+
+        </div>
+        </div>*@
+
+        @*<div class="form-group row">
+            <div class="col-sm-2">
+                @Html.LabelFor(model => model.BatchId,"Batch", new { @class = "control-label" })
+            </div>
+            <div class="col-sm-3">
+                @Html.DropDownList("BatchId", null, "-- Select --", new { @class = "form-control"})
+            </div>
+        </div>*@
+
+        @*<div class="form-group row">
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.ClassId,"Class", new { @class = "control-label" })
+        </div>
+        <div class="col-sm-3">
+            @Html.DropDownList("ClassId", null, "-- Select --", new { @class = "form-control"})
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.SectionId,"Section", new { @class = "control-label" })
+        </div>
+        <div class="col-sm-3">
+            @Html.DropDownList("SectionId", null, "-- Select --", new { @class = "form-control" })
+        </div>*@
+    </div>
+		<div class="form-group row">
+			<div class="col-sm-2">
+				@Html.LabelFor(model => model.CurrentClassId,"Current Class", new { @class = "control-label" })
+			</div>
+			<div class="col-sm-3">
+				@Html.DropDownList("CurrentClassId", null, "-- Select --", new { @class = "form-control" })
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2">
+				@Html.LabelFor(model => model.CurrentSectionId,"Current Section", new { @class = "control-label" })
+			</div>
+			<div class="col-sm-3">
+				@Html.DropDownList("CurrentSectionId", null, "-- Select --", new { @class = "form-control"})
+			</div>
+		</div>
+
+        @*<div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.AdmissionYear,"Admissin Year",new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.AdmissionYear, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "YYYY-MM-DD" })
+                @Html.ValidationMessageFor(model => model.AdmissionYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2">
+                @Html.LabelFor(model => model.TemporaryAddress, "Temporary Address", new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.TemporaryAddress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TemporaryAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2">
+                @Html.LabelFor(model => model.PermanentAddress, "Permanent Address", new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.PermanentAddress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PermanentAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.Phone, "Phone",new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.DOB, "DOB (AD)", new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.DOB, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "YYYY-MM-DD" })
+                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+            </div>
+			<div class="col-sm-1"></div>
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.DOBBS, "DOB (BS)",new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.DOBBS, new { @class = "form-control", placeholder = "YYYY-MM-DD" })
+                @Html.ValidationMessageFor(model => model.DOBBS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.FatherName, "Father Name", new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+            </div>
+			<div class="col-sm-1"></div>
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.FatherContact, "Father Contact", new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.FatherContact, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FatherContact, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.MotherName, "Mother Name",new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+            </div>
+			<div class="col-sm-1"></div>
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.MotherContact,"Mother Contact", new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.MotherContact, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MotherContact, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        
+
+        <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+
+}
+</div>
+</div>
+</section>
+

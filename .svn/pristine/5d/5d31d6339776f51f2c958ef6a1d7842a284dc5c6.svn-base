@@ -1,0 +1,201 @@
+﻿@model United_IMS.Web.Models.ACD_Student
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Create</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null,new{@class="btn btn-xs btn-success"})</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <label class="control-label" for="StudentName">Student Name</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.StudentName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*<div class="form-group row">
+
+                    @Html.TextBoxFor(model => model.StudentCode, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StudentCode, "", new { @class = "text-danger" })
+                </div>*@
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="">Student Reg No.</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.StudentRegNo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.StudentRegNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="form-group row">
+                <div class="col-sm-2">
+                    <label class="control-label" for="">Gender</label>
+                </div>
+                <div class="col-sm-3">
+                    <input type="radio" name="Gender" id="Male" value="Male" checked />&nbsp;&nbsp;&nbsp;Male &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="Gender" id="Female" value="Female" />&nbsp;&nbsp;&nbsp;Female
+                </div>
+            </div>*@
+
+                <div class="form-group row">
+
+                    <div class="col-sm-2">
+                        <label class="control-label" for="">Batch</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("BatchId", null, "-- Select --", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                @*<div class="form-group row">
+                    <div class="col-sm-2">
+                        <label class="control-label" for="">Class</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("ClassId", null, "-- Select --", new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="">Section</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("SectionId", null, "-- Select --", new { @class = "form-control" })
+                    </div>
+                </div>*@
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <label class="control-label" for="">@*Current Class*@Class</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("CurrentClassId", null, "-- Select --", new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="">@*Current Section*@Section</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("CurrentSectionId", null, "-- Select --", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                @* <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Admission Year</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.AdmissionYear, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "YYYY-MM-DD" })
+                     @Html.ValidationMessageFor(model => model.AdmissionYear, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+
+            <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Temporary Address</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.TemporaryAddress,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.TemporaryAddress, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+
+             <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Permanent Address</label>)
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.PermanentAddress,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.PermanentAddress, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+
+             <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Phone</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.Phone,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+
+             <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">DOB (AD)</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.DOB, "{0:yyyy-MM-dd}",  new { @class = "form-control", placeholder = "YYYY-MM-DD" } )
+                     @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                 </div>
+                 <div class="col-sm-1"></div>
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">DOB (BS)</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.DOBBS,  new { @class = "form-control", placeholder = "YYYY-MM-DD" } )
+                     @Html.ValidationMessageFor(model => model.DOBBS, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+
+             <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Father Name</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.FatherName,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                 </div>
+                 <div class="col-sm-1"></div>
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Father Contact</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.FatherContact,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.FatherContact, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+
+             <div class="form-group row">
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Mother Name</label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.MotherName,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                 </div>
+                 <div class="col-sm-1"></div>
+                 <div class="col-sm-2">
+                     <label class="control-label" for="">Mother Contact  </label>
+                 </div>
+                 <div class="col-sm-3">
+                     @Html.TextBoxFor(model => model.MotherContact,  new { @class = "form-control" } )
+                     @Html.ValidationMessageFor(model => model.MotherContact, "", new { @class = "text-danger" })
+                 </div>
+             </div>*@
+
+
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+
+            }
+        </div>
+</div>
+</section>

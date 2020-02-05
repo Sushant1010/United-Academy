@@ -1,0 +1,79 @@
+﻿@model United_IMS.Web.ViewModel.UserVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Details</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+    <div class="box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.FullName, "Full Name", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.OrganizationId, "Organization", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.OrganizationId, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.OrganizationId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.IsAdmin, "Admin?", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.IsAdmin, new { @class = "", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.IsAdmin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.IsActive, "Active?", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.IsActive, new { @class = "", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+</section>

@@ -1,0 +1,88 @@
+﻿@model United_IMS.Web.Models.MS_Unit
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Create Create</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.Label("Batch", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("BatchId",null,"-- Select --", new { @class = "form-control",onchange= "GetStudent(0)" })
+                    </div>
+                </div>
+                <div  class="form-group row">
+                    <div id="divLoader" style="display:none;"> <center><img src="~/images/loader.gif" alt="Loader" /> </center></div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12" id="StudentId">
+                        
+                     </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">Assign To</div>
+                    <div class="col-sm-3">@Html.DropDownList("AcademicYear", null, "-- Select --", new { @class = "form-control select2",required="required" })</div>
+                    <div class="col-sm-3">@Html.DropDownList("ClassId", null, "-- Select --", new { @class = "form-control select2",required="required" })</div>
+                    <div class="col-sm-3">@Html.DropDownList("SectionId", null, "-- Select --", new { @class = "form-control select2" })</div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+<script>
+    function GetStudent(check) {
+  //      var company = $('#CompanyId').val();
+		//var location = $('#LocationId').val();
+		//var department = $('#DepartmentId').val();
+        var batch = $('#BatchId').val();
+		//if (company == '') {
+		//	company = 0;
+		//}
+		//if (location == '') {
+		//	location = 0;
+		//}
+		//if (department == '') {
+		//	department = 0;
+		//}
+		//if (unit == '') {
+		//	unit = 0;
+		//}
+
+		$("#divLoader").show();  
+		$.ajax({
+			type: "POST",
+			data: {  id: batch, Check: check },
+			url: '@Url.Action("GetStudentByBatchId", "AcademicStudent")',
+			success: function (data) {
+				$("#divLoader").hide();  
+				$('#StudentId').empty();
+                $('#StudentId').append(data);
+				GetDatatable("xyz");
+
+			}
+		});
+    }
+</script>

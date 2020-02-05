@@ -1,0 +1,117 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.AcademicStudentVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Student List</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Batch</span>
+                        @Html.DropDownList("BatchId", null, "-- Select --", new { @class = "form-control select2" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Class</span>
+                        @Html.DropDownList("ClassId", null, "-- Select --", new { @class = "form-control select2" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Section</span>
+                        @Html.DropDownList("SectionId", null, "-- Select --", new { @class = "form-control select2" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Reg No</span>
+                        @Html.TextBox("StudentRegNo", "", new { @class = "form-control" })
+                    </div>
+                    
+                </div>
+
+                </div>
+                <div class="form-group row">
+            
+                <div class="col-sm-1"><input type="submit" class="btn btn-primary" value="Search" /></div>
+            </div>
+            }
+        </div>
+            <div class="box-body">
+                <table class="table table-condensed table-bordered" id="example">
+                    <thead>
+                        <tr class="btn-primary">
+                            <th>
+                                Student Reg No.
+                            </th>
+                            <th>
+                                Student Name
+                            </th>
+                            @*<th>
+            @Html.DisplayNameFor(model => model.AdmissionYear)
+        </th>*@
+                            <th>
+                              Gender
+                            </th>
+                            <th>
+                               Batch Name
+                            </th>
+                            <th>
+                                Class Name
+                            </th>
+                            <th>
+                               Section Name
+                            </th>
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StudentRegNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StudentName)
+                                </td>
+                                
+                                @*<td>
+                                    @(item.AdmissionYear != null ? ((DateTime)item.AdmissionYear).ToString("yyyy-MM-dd") : "")
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BatchName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CurrentClassName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CurrentSectionName)
+                                </td>
+
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.StudentId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+                                    @Html.ActionLink(" ", "Details", new { id = item.StudentId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+                                    @Html.ActionLink(" ", "Delete", new { id = item.StudentId }, new { @class = "fa fa-trash-o text-danger", title = "Delete", onclick = "return confirm('Are you sure to Delete?')" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</section>

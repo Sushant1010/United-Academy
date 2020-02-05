@@ -1,0 +1,52 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.AcademicClassVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Class List</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create",null,new{@class="btn btn-xs btn-success"})</li></ol>
+</section>
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>
+           Class Name
+        </th>
+        <th>
+           Class Code
+        </th>
+        <th>
+           Organization Name
+        </th>
+        
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizationName)
+        </td>
+        
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.ClassId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+			@Html.ActionLink(" ", "Details", new { id = item.ClassId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+			@Html.ActionLink(" ", "Delete", new { id = item.ClassId }, new { @class = "fa fa-trash-o text-danger", title = "Delete",onclick="return confirm('Are you sure to Delete?')" }) 
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+</div>
+</section>

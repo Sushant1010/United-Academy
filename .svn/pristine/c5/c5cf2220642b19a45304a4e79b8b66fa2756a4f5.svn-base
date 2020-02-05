@@ -1,0 +1,85 @@
+﻿<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=301880
+  -->
+<configuration>
+  <configSections>
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+  </configSections>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0"/>
+    <add key="webpages:Enabled" value="false"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+  </appSettings>
+  <system.web>
+    <customErrors mode="Off"/>
+    <trust level="Full"/>
+    <membership defaultProvider="CustomMembership">
+      <providers>
+        <clear/>
+        <add name="CustomMembership" type="United_IMS.Web.Security.CustomMembership"/>
+      </providers>
+    </membership>
+    <roleManager defaultProvider="CustomRole" enabled="true">
+      <providers>
+        <clear/>
+        <add name="CustomRole" type="United_IMS.Web.Security.CustomRole"/>
+      </providers>
+    </roleManager>
+    <compilation targetFramework="4.5.2" debug="true"/>
+    <httpRuntime targetFramework="4.5.2"/>
+    <httpModules>
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web"/>
+    </httpModules>
+    <machineKey validationKey="154085DE8F2BFE492420417AA7567911EC83B5E05F127FCC5A5CB1EDBB963805AABE0AD5B470F4A3A8E07B72263E861E642200B69E04AF581935A837C51AF37D" decryptionKey="EEA4C080461B8D0CADBA82DBAC00C047782551A3F4787D442DAC240BC5A69C2A" validation="SHA1" decryption="AES"/>
+  </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" culture="neutral" publicKeyToken="30ad4fe6b2a6aeed"/>
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="0.0.0.0-1.5.2.14234" newVersion="1.5.2.14234"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false"/>
+    <modules>
+      <remove name="ApplicationInsightsWebTracking"/>
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler"/>
+    </modules>
+  </system.webServer>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework"/>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer"/>
+    </providers>
+  </entityFramework>
+  <connectionStrings>
+    <!--<add name="united_ims" connectionString="data source=dandelion.arvixe.com;initial catalog=united_ims;user id=united_ims;password=united_ims@2019;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />-->
+    <add name="united_ims" connectionString="data source=103.195.185.254;initial catalog=kantijow_unitedacdb;persist security info=True;user id=unitedacdb;password=Academy@2019;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+</configuration>
+<!--ProjectGuid: 292420D4-D435-4E25-B44B-1A927AEBB8C7-->

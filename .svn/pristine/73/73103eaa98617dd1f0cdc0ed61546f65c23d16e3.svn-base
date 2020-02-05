@@ -1,0 +1,146 @@
+﻿@model United_IMS.Web.Models.ACD_ClassSection
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Edit Edit</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+   
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ClassSectionId)
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.ClassId, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.ClassId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.SectionId, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.SectionId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SectionId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.StartDate, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.StartDateBS, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.StartDateBS, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StartDateBS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.EnteredBy, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.EnteredBy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EnteredBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.EnteredDate, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.EnteredDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EnteredDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.LastUpdatedBy, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.LastUpdatedBy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LastUpdatedBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.LastUpdatedDate, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.LastUpdatedDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LastUpdatedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.IsDeleted, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                <div class="checkbox">
+                    @Html.TextBoxFor(model => model.IsDeleted)
+                    @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.DeletedBy, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.DeletedBy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DeletedBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.DeletedDate, new { @class = "control-label" })
+			</div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.DeletedDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DeletedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+
+}
+</div>
+</div>
+</section>
+

@@ -1,0 +1,285 @@
+﻿@model United_IMS.Web.Models.FA_Asset
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Asset Edit</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.AssetId)
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.Label("Asset Item", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.DropDownList("AssetItemId", null, "-- Select --", new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.AssetItemId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssetUniqueCode, "Unique Code", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.AssetUniqueCode, new { @class = "form-control", @readonly="readonly" })
+                    @Html.ValidationMessageFor(model => model.AssetUniqueCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.BillDate, "Bill Date", new { @class = "control -label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.BillDate, "{0:yyyy-MM-dd}", new { @class = "form-control EngDate", required = "required" })
+                        @Html.ValidationMessageFor(model => model.BillDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.BillDateBs, "Bill Date BS", new { @class = "control -label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.BillDateBs, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BillDateBs, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.BillNo, "Bill No", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.BillNo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BillNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.PurchaseValue, "Purchase Value", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.PurchaseValue, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PurchaseValue, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.OpeningValue, "Opening Value", new { @class = "control -label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.OpeningValue, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OpeningValue, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.Label("Branch", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("BranchId", null, "-- Select --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.Label("Location", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownList("LocationId", null, "-- Select --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.UsefulLife, "Useful Life (In Months)", new { @class = "control -label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.UsefulLife, new { @class = "form-control", required = "required" })
+                        @Html.ValidationMessageFor(model => model.UsefulLife, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.IsAccessory, "Is Accessory", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="">
+                            @Html.RadioButton("IsAccessory", "Yes", Model.IsAccessory ? true : false, new { onclick = "ShowAccessory('Y')" })<span>Yes &nbsp; &nbsp;</span>
+                            @Html.RadioButton("IsAccessory", "No", Model.IsAccessory ? false : true, new { onclick = "ShowAccessory('N')" })<span>No &nbsp; &nbsp;</span>
+                        </div>
+                    </div>
+                    <div id="Accessory" style="display:@(Model.IsAccessory?"block":"none")">
+                        <div class="col-sm-2">
+                            @Html.Label("Accessory For", new { @class = "control-label" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.DropDownList("AccessoryForAssetId", null, "-- Select --", new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.Label(" Depreciable", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="">
+                            @Html.RadioButton("IsDepreciationApplicable", "Yes", Model.IsDepreciationApplicable ? true : false, new { onclick = "ShowDepreciate('Y')" })<span>Yes &nbsp; &nbsp;</span>
+                            @Html.RadioButton("IsDepreciationApplicable", "No", Model.IsDepreciationApplicable ? false : true, new { onclick = "ShowDepreciate('N')" })<span>No &nbsp; &nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row" id="Depreciation" style="display:@(Model.IsDepreciationApplicable?"block":"none")">
+                    <div class="col-sm-2">
+                        @Html.Label("Depreciation Date", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.DepreciationStartDate, "{0:yyyy-MM-dd}", new { @class = "form-control EngDate" })
+                        @Html.ValidationMessageFor(model => model.DepreciationStartDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.Label("Depreciate Remarks", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.DepreciationRemarks, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DepreciationRemarks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.Label("Is Sold", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="">
+                            @Html.RadioButton("IsSold", "Yes", Model.IsSold != null && (bool)Model.IsSold ? true : false, new { onclick = "ShowSold('Y')" })<span>Yes &nbsp; &nbsp;</span>
+                            @Html.RadioButton("IsSold", "No", Model.IsSold != null && (bool)Model.IsSold ? false : true, new { onclick = "ShowSold('N')" })<span>No &nbsp; &nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row" id="Sold" style="display:@(Model.IsSold!=null&&(bool)Model.IsSold?"block":"none")">
+                    <div class="col-sm-2">
+                        @Html.Label("Sold Date", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.SoldDate, "{0:yyyy-MM-dd}", new { @class = "form-control EngDate" })
+                        @Html.ValidationMessageFor(model => model.SoldDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.Label("Sold Value", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.SoldValue, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.Label("Is Scrap", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="">
+                            @Html.RadioButton("IsScrap", "Yes", Model.IsScrap ? true : false, new { onclick = "ShowScrap('Y')" })<span>Yes &nbsp; &nbsp;</span>
+                            @Html.RadioButton("IsScrap", "No", Model.IsScrap ? false : true, new { onclick = "ShowScrap('N')" })<span>No &nbsp; &nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row" id="Scrap" style="display:@(Model.IsScrap!=null&&(bool)Model.IsScrap?"block":"none")">
+                    <div class="col-sm-2">
+                        @Html.Label("Scrap Date", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.ScrapDate, "{0:yyyy-MM-dd}", new { @class = "form-control EngDate" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.Label("Scrap Value", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.ScrapRealizedValue, new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+<script>
+    function ShowAccessory(value)
+    {
+        if (value == "Y") {
+            $("#Accessory").show();
+        }
+        else {
+            $("#Accessory").hide();
+        }
+    }
+    function ShowDepreciate(value) {
+        if (value == "Y") {
+            $("#Depreciation").show();
+        }
+        else {
+            $("#Depreciation").hide();
+        }
+    }
+
+    function ShowSold(value)
+    {
+        if (value == "Y") {
+            $("#Sold").show();
+        }
+        else {
+            $("#Sold").hide();
+        }
+    }
+    function ShowScrap(value)
+    {
+        if (value == "Y") {
+            $("#Scrap").show();
+        }
+        else {
+            $("#Scrap").hide();
+        }
+    }
+</script>

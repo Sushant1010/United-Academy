@@ -1,0 +1,557 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var categorylist = (List<United_IMS.Web.ViewModel.Basic>)ViewBag.CategoryList;
+    var data = "<option value=''>--Select-- </option>";
+    foreach (var a in categorylist)
+    {
+        data += "<option value='" + a.Id + "'>" + a.Name + "</option>";
+    }
+    <input type="hidden" name="hddCategory" id="hddCategory" value="@data">
+    var itemlist = (List<United_IMS.Web.ViewModel.Basic>)ViewBag.ItemList;
+    var data1 = "<option value=''>--Select-- </option>";
+    foreach (var a in itemlist)
+    {
+        data1 += "<option value='" + a.Id + "'>" + a.Name + "</option>";
+    }
+    <input type="hidden" name="hddItem" id="hddItem" value="@data1">
+
+    var unitlist = (List<United_IMS.Web.ViewModel.Basic>)ViewBag.UnitList;
+    var data11 = "<option value=''>--Select-- </option>";
+    //foreach (var a in unitlist)
+    //{
+    //   // data11 += "<option value='" + a.Id + "'>" + a.Name + "</option>";
+    //}
+    <input type="hidden" name="hddUnit" id="hddUnit" value="@data11">
+    //var Unitlist = (List<United_IMS.Web.ViewModel.Basic>)ViewBag.UnitList;
+    //var data2 = "<option value=''>--Select-- </option>";
+    //foreach (var a in Unitlist)
+    //{
+    //    data2 += "<option value='" + a.Id + "'>" + a.Name + "</option>";
+    //}
+
+    @*<input type="hidden" name="hddUnit" id="hddUnit" value="@data2">*@
+
+}
+
+<section class="content-header">
+    <h1>Sales Create</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <input type="hidden" value="0" name="SoldBillId" id="SoldBillId" />
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Date</span>
+                            @Html.TextBox("BillDate", "", new { @class = "form-control EngDate" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Date BS</span>
+                            @Html.TextBox("BillDateBS", "", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="form-group row">
+                    @*<div class="col-sm-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">Bill No</span>
+                                @Html.TextBox("BillNo", "", new { @class = "form-control" })
+                            </div>
+                        </div>*@
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Group No</span>
+                            @Html.TextBox("GroupNo", "", new { @class = "form-control" })
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1">Type</div>
+                    <div class="col-sm-2">
+
+                        @Html.RadioButton("IsStaff", "Yes", false, new { onclick = "showdiv('Y')" }) <span>Staff &nbsp; &nbsp;</span>
+                        @Html.RadioButton("IsStaff", "No", true, new { onclick = "showdiv('N')" }) <span>Student</span>
+
+                    </div>
+
+                    <div class="col-sm-3" id="Staff" style="display:none">
+                        <div class="input-group">
+                            <span class="input-group-addon">Staff</span>
+                            @Html.DropDownList("StaffId", null, "-- Select --", new { @class = "form-control select2 StaffId", style = "width:200px;" })
+
+                            @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group row" id="Student">
+                    
+                        <div class="col-sm-1">Student</div>
+                        <div class="col-sm-2">
+
+                            @Html.RadioButton("IsShow", "No", true, new { onclick = "showdiv1('Y')" }) <span>Hide &nbsp; &nbsp;</span>
+                            @Html.RadioButton("IsShow", "Yes", false, new { onclick = "showdiv1('N')" }) <span>Show</span>
+
+                        </div>
+                    
+                        <div id="Student1"  style="display:none">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Batch</span>
+                                    @Html.DropDownList("BatchId", null, "-- Select --", new { @class = "form-control select2 BatchId", onchange = "GetStudent()", style="width:200px;" })
+
+                                    @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Class</span>
+                                    @Html.DropDownList("ClassId", null, "-- Select --", new { @class = "form-control select2 ClassId", onchange = "GetStudent()", style = "width:200px;" })
+
+                                    @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Section</span>
+                                    @Html.DropDownList("SectionId", null, "-- Select --", new { @class = "form-control select2 SectionId", onchange = "GetStudent()", style = "width:200px;" })
+
+                                    @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Student2">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Student</span>
+                                    @Html.DropDownList("StudentId", null, "-- Select --", new { @class = "form-control select2 StudentId" })
+
+                                    @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <span class="btn btn-primary" title="Save" onclick="SaveBill()"><span id="save-' + crowindex + '" style="cursor:pointer">Save Bill Detail</span></span><b class="psave" style="color:forestgreen"></b>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered table-condensed unittable" id="ItemUnit">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-3">Category</th>
+                                        <th class="col-sm-3">Item</th>
+                                        <th class="col-sm-1">Quantity</th>
+                                        <th class="col-sm-1">Unit</th>
+                                        <th class="col-sm-1">Rate</th>
+                                        <th class="col-sm-1">Total</th>
+                                        <th class="col-sm-1">Remove</th>
+                                        <th class="col-sm-1">Save</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4"><span onclick="addItem()" style="cursor:pointer;width:80px;" class="btn btn-primary"><i class="fa fa-plus" style="padding-right:5px;"></i>Add</span></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">Total Amount</span>
+                                @*onblur="GetTotal(' + crowindex + ')"*@
+                                @*<input type="text" value="" class="form-control" />*@
+                                @Html.TextBox("TotalAmount", "", new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Save" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                    }
+                </div>
+    </div>
+</section>
+
+<script>
+    //function showdivvat(inp) {
+    //    if (inp == 'Y') {
+    //        $("#VatDiv").show();
+    //    }
+    //    else {
+    //        $("#VatDiv").hide();
+    //        $("#VatAmount").val(0);
+    //    }
+    //}
+
+    function showdiv(stype) {
+        if (stype == "Y") {
+            $("#Staff").show();
+            $("#Student").hide();
+        }
+        else if (stype == "N") {
+            $("#Staff").hide();
+            $("#Student").show();
+        }
+    }
+
+    function showdiv1(stype) {
+        if (stype == "N") {
+            $("#Student1").show();
+            $("#Student2").show();
+        }
+        else if (stype == "Y") {
+            $("#Student1").hide();
+            $("#Student2").show();
+        }
+    }
+    function SaveBill()
+    {
+        var atype= $('input[name=IsStaff]:checked').val();
+        if ( $("#BillDate").val() == null || $("#BillDate").val() == "") {
+            alert("Select Biil Date");
+            return false;
+        }
+        //if ($("#BillNo").val() == null || $("#BillNo").val() == "") {
+        //    alert("Enter Bill No");
+        //    return false;
+        //}
+        if ($("#GroupNo").val() == null || $("#GroupNo").val() == "") {
+            alert("Enter Group No");
+            return false;
+        }
+        if (atype == "Yes") {
+            if ($("#StaffId").val() == null || $("#StaffId").val() == "") {
+                alert("Select Staff");
+                return false;
+            }
+        }
+        else {
+            if ($("#StudentId").val() == null || $("#StudentId").val() == "") {
+                alert("Select Student");
+                return false;
+            } else {
+                $(document).ready(function () {
+
+                    $(".psave").html("Bill Detail Saved");
+
+                });
+            }
+        }
+
+
+        $.ajax({
+                url: "@Url.Action("SaveSoldBill", "InventorySales")",
+            //SaveSolditem(ClassId = "", string SectionId = "", string StudentId = "", string StaffId = "")
+                type: "post",
+            data: {
+                SoldBillId: $("#SoldBillId").val(),
+                BillDate: $("#BillDate").val(),
+                BillDateBS: $("#BillDateBS").val(),
+                BillNo: $("#BillNo").val(),
+                GroupNo: $("#GroupNo").val(),
+                TotalAmount: $("#TotalAmount").val(),
+                IsStaff: atype,
+                ClassId: $("#ClassId").val(),
+                SectionId: $("#SectionId").val(),
+                StudentId: $("#StudentId").val(),
+                StaffId: $("#StaffId").val(),
+            },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#SoldBillId");//district dropdown.
+                $select.val(response.result);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+    function SaveItem(rindex) {
+        if ($("#SoldBillId").val() == 0 || $("#SoldBillId").val() == null) {
+            alert("Bill Detail not saved.");
+            return false;
+        }
+        if ($("#ItemId-" + rindex).val() == 0 || $("#ItemId-" + rindex).val() == null || $("#ItemId-" + rindex).val() == "") {
+            alert("Select Item");
+            return false;
+        }
+        if ($("#UnitId-" + rindex).val() == 0 || $("#UnitId-" + rindex).val() == null || $("#UnitId-" + rindex).val() == "") {
+            alert("Select Unit");
+            return false;
+        }
+        if ($("#Quantity-" + rindex).val() == 0 || $("#Quantity-" + rindex).val() == null || $("#Quantity-" + rindex).val() == "") {
+            alert("Enter Quantity greater than 0");
+            return false;
+        }
+        if ( $("#Rate-" + rindex).val() == null || $("#Rate-" + rindex).val() == "") {
+            alert("Enter Rate");
+            return false;
+        }
+
+        $.ajax({
+                url: "@Url.Action("SaveSoldItem", "InventorySales")",
+            //SaveSolditem(ClassId = "", string SectionId = "", string StudentId = "", string StaffId = "")
+                type: "post",
+            data: {
+                SoldItemId: $("#SoldItemId-" + rindex).val(),
+                SoldBillId: $("#SoldBillId").val(),
+                //OrganizationId: $("#" + rindex).val(),
+                ItemId: $("#ItemId-" + rindex).val(),
+                UnitId: $("#UnitId-" + rindex).val(),
+                Quantity: $("#Quantity-" + rindex).val(),
+                Rate: $("#Rate-" + rindex).val(),
+                Total: $("#Total-" + rindex).val(),
+            },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#SoldItemId-" + rindex);//district dropdown.
+                $select.val(response.result);
+
+                if (response.result > 0) {
+                    alert("Item Saved!!")
+                    //$(".savemsg-" + rindex).val("Saved");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+    $(function () {
+        $(".unittable").on("click", "tr a", function (e) {
+            e.preventDefault();
+            if (confirm("Are you sure to remove?")) {
+                $(this).parents('tr').remove();
+                calAmount();
+            }
+        });
+    });
+
+    var crowindex =1; @*@(((List<ams.dms.Models.DW_TemplateStation>)ViewBag.Station).Count()+1);*@
+    function addItem() {
+        msg = '<tr>';
+        msg += '<td class="col-sm-2"><input type="hidden" name="hddrowindex" value="' + crowindex + '" class="rowcount" /><input type="hidden" name="SoldItemId-' + crowindex + '" id="SoldItemId-' + crowindex + '" value="0" class="rowcount" />';
+        msg += '<select  class=" ' + crowindex + ' userinput" style="text-transform:uppercase; width:100%" name="CategoryId-' + crowindex + '" id="CategoryId-' + crowindex + '"  onchange="GetItem(' + crowindex + ')">';
+        msg += document.getElementById("hddCategory").value;
+        msg += ' </select>';
+        msg += '</td>';
+        msg += '<td class="col-sm-3">';
+        msg += '<select  class=" ' + crowindex + ' userinput" style="text-transform:uppercase; width:100%" name="ItemId-' + crowindex + '" id="ItemId-' + crowindex + '" required="required" onchange="GetUnit(' + crowindex + ')">';
+        msg += document.getElementById("hddItem").value;
+        msg += ' </select>';
+        msg += '</td>';
+        msg += '<td class="col-sm-1 center-fix" style="text-align:center;">';
+        msg += '<input type="text" class="form-control" name="Quantity-' + crowindex + '" id="Quantity-' + crowindex + '" required="required" value="0" onchange="CheckQuantity('+crowindex+')"/>';
+        msg += '</td>';
+        msg += '<td class="col-sm-2">';
+        //msg += '<select  class="unitclass userinput" style=" width:100%" name="UnitId-' + crowindex + '" id="UnitId-' + crowindex + '" required="required" onchange="GetRate(' + crowindex + ')">';
+        //msg += document.getElementById("hddUnit").value;
+        //msg += ' </select>';
+        msg += '<select  class="form-control userinput" style="text-transform:uppercase; width:100%" name="UnitId-' + crowindex + '" id="UnitId-' + crowindex + '" required="required" onchange="GetRate(' + crowindex + ')">';
+        //msg += document.getElementById("hddItem").value;
+        msg += ' </select>';
+        msg += '</td>';
+        msg += ' <td class="col-sm-1 center-fix" style="text-align:center;"><input type="text" class="form-control" name="Rate-' + crowindex + '" id="Rate-' + crowindex + '" required="required" value="0" onblur="GetTotal(' + crowindex + ')"/></td>';
+        msg += ' <td class="col-sm-1 center-fix" style="text-align:center;"><input type="text" class="form-control amount" name="Total-' + crowindex + '" id="Total-' + crowindex + '" required="required" value="0"  onblur="calAmount()"/></td>';
+        msg += '<td class="col-sm-1 center-fix" style="text-align:center;"><a href="" class="btn" title="Remove"><span id="remove-' + crowindex + '"  style="cursor:pointer"><i class="fa fa-times"></i></span></a>';
+        msg += '</td>';
+        msg += '<td class="col-sm-1 center-fix" style="text-align:center;"><span class="btn btn-primary" title="Save" onclick="SaveItem(' + crowindex + ')"><span id="save-' + crowindex + '"  style="cursor:pointer">Save</span></span>';
+        msg += '</td>';
+        msg += '</tr>';
+
+
+        $('table#ItemUnit  tbody').append(msg);
+        initializeSelectNew(crowindex);
+        initializeSelectNew('unitclass');
+        crowindex++;
+    }
+    function GetTotal(rindx)
+    {
+        var qty = $("#Quantity-" + rindx).val();
+        var rate = $("#Rate-" + rindx).val();
+        //alert(qty + "," + rate + "," + parseInt(qty) * parseInt(rate));
+        $("#Total-" + rindx).val(parseFloat(qty) * parseFloat(rate));
+        calAmount();
+    }
+    function GetUnit(iindex) {
+        if ($("#ItemId-" + iindex) != null && $("#ItemId-" + iindex) != 0) {
+            $.ajax({
+                url: "@Url.Action("GetUnitByItem", "Utility")",
+                type: "post",
+                data: { id: $("#ItemId-" + iindex).val() },
+                success: function (response, textStatus, jqXHR) {
+                    var $select = $("#UnitId-" + iindex);//district dropdown.
+                    $select.empty();
+
+
+                    $select.append(response);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    //alert("Something went wrong, Select Crew Type Again.");
+                },
+                complete: function () {
+                }
+            });
+        }
+    }
+
+    function CheckQuantity(iindex) {
+        if ($("#ItemId-" + iindex) != null && $("#ItemId-" + iindex) != 0) {
+            $.ajax({
+                url: "@Url.Action("CheckQuantity", "Utility")",
+                type: "post",
+                data: { id: $("#ItemId-" + iindex).val() },
+                success: function (response, textStatus, jqXHR) {
+                    //var $select = $("#UnitId-" + iindex);//district dropdown.
+                    //$select.empty();
+                    if (response < $("#Quantity-" + iindex).val()) {
+                        alert("Out Of Stock");
+                        $("#Quantity-" + iindex).val("");
+                    }
+                    
+
+                    //$select.append(response);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    //alert("Something went wrong, Select Crew Type Again.");
+                },
+                complete: function () {
+                }
+            });
+        }
+    }
+   
+    function GetStudent() {
+        var batch = $("#BatchId").val();
+        var sclass = $("#ClassId").val();
+        var section = $("#SectionId").val();
+        $.ajax({
+                url: "@Url.Action("GetStudentByBatchClassSection", "Utility")",
+            type: "post",
+            data: { batchid: batch, classid: sclass, sectionid: section },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#StudentId-" + iindex);//district dropdown.
+                $select.empty();
+
+
+                $select.append(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+    $('#BillDate').change(function () {
+        $('#BillDateBS').val(AD2BS($('#BillDate').val()));
+    });
+
+    $('#BillDateBS').nepaliDatePicker({
+        ndpEnglishInput: 'BillDate'
+    });
+
+    function calAmount() {
+        var sum = 0;
+        $('.amount').each(function () {
+            sum += parseFloat(this.value);
+            document.getElementById('TotalAmount').value = sum;
+        });
+    }
+    function GetItem(catindex)
+    {
+        var cat = $("#CategoryId-"+catindex).val();
+
+        $.ajax({
+                url: "@Url.Action("GetItemByCategory", "Utility")",
+            type: "post",
+            data: { catid: cat},
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#ItemId-" + catindex);//district dropdown.
+                $select.empty();
+                $select.append(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+    //function calGrandAmount() {
+    //    var sum = 0;
+    //    var TotalAmount = $("#TotalAmount").val();
+    //    $('.grandamount').each(function () {
+    //        sum += parseFloat(this.value) + parseFloat(TotalAmount);
+    //        document.getElementById('GrandTotalAmount').value = sum;
+    //    });
+    //}
+
+     function GetRate(urindex)
+    {
+        //alert("hello");
+         if ($("#UnitId-" + urindex).val() != null && $("#UnitId-" + urindex).val()!= 0)
+         {
+            $.ajax({
+                url: "@Url.Action("GetRateByItemUnit", "Utility")",
+                type: "post",
+                data: { itemid: $("#ItemId-" + urindex).val(), unitid: $("#UnitId-" + urindex).val() },
+                success: function (response, textStatus, jqXHR) {
+                    var $select = $("#Rate-" + urindex);//district dropdown.
+                    $select.val(response);
+                    GetTotal(urindex);
+                    calAmount();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    //alert("Something went wrong, Select Crew Type Again.");
+                },
+                complete: function () {
+                }
+            });
+        }
+    }
+</script>

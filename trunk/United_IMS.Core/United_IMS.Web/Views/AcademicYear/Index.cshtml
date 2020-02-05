@@ -1,0 +1,66 @@
+﻿@model IEnumerable<United_IMS.Web.Models.MS_AcademicYear>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Academic Year List</h1>
+    <ol class="breadcrumb">
+        <li class="list">
+            @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success btn-xs" })
+        </li></ol>
+</section>
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>
+           Academic Year 
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            End Date
+        </th>
+        <th>
+            Is Current
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcademicYearName)
+        </td>
+        <td>
+            @(item.StartDate != null ? ((DateTime)item.StartDate).ToString("yyyy-MM-dd"):"")
+        </td>
+        <td>
+			@(item.EndDate != null ? ((DateTime)item.EndDate).ToString("yyyy-MM-dd") : "")
+        </td>
+        <td>
+            @if (item.IsCurrent == true)
+            {
+                <span class="label label-success">Yes</span>
+            }
+            else
+            {
+                <span class="label label-danger">No</span>
+            }
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.AcademicYearId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+			@Html.ActionLink(" ", "Details", new { id = item.AcademicYearId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+			@Html.ActionLink(" ", "Delete", new { id = item.AcademicYearId }, new { @class = "fa fa-trash-o text-danger", title = "Delete",onclick="return confirm('Are you sure to Delete?')" }) 
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+</div>
+</section>

@@ -1,0 +1,159 @@
+﻿@model United_IMS.Web.ViewModel.InventorySoldDetail
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+
+}
+    <script>
+function printPageArea(areaID){
+    var printContent = document.getElementById(areaID);
+    var WinPrint = window.open('', '', 'width=900,height=650');
+    WinPrint.document.write(printContent.innerHTML);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
+}
+    </script>
+<section class="content-header">
+    <h1>Sales Detail</h1>
+    <ol class="breadcrumb">
+        <li class="list">@Html.ActionLink("Edit", "Edit", "InventorySales", new { Id = Model.InventorySold.SoldBillId }, new { @class = "btn btn-xs btn-success" })</li>
+        <li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label><span style="color:#fff">print</span></label>
+                    <a class="btn btn-success form-control" href="javascript:void(0);" onclick="printPageArea('printableArea')">Print</a>
+                </div>
+            </div>
+            <div id="printableArea">
+                
+                   <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/assets/css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="~/assets/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="~/assets/css/select2.min.css">
+	<link rel="stylesheet" href="~/assets/css/_all-skins.min.css">
+	<link rel="stylesheet" href="~/assets/css/dataTables.bootstrap.min.css">
+                
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group row col-sm-12">
+                        <table class="table" style="border:none !important;">
+                            <tbody>
+                                <tr style="border:none !important;">
+                                    <td colspan="5" style="border:none !important;">
+                                        <center><b>UTC <hr style="border: 1px solid;"></b></center>  
+                                    </td>
+                                </tr>
+                                <tr style="border:none !important;">
+                                    <td colspan="5" style="border:none !important;">
+                                        @*<input type="text" name="name" value="@Model.InventorySold.BillDate" />*@
+                                        <b style="float:right; text-align:right">
+                                            @Html.Label("Date:", new { @class = "", disabled = "disabled", style = "border:none; background:none;" })
+                                            @Html.TextBox("BillDate", Model.InventorySold.BillDate, "{0:dd/MM/yyyy}", new { @class = "", disabled = "disabled", style = "border:none; background:none; width:80px;" })
+                                        </b>
+                                        @*"{0:dd/MM/yyyy}"*@
+                                    </td>
+
+                                </tr>
+                                <tr style="border:none !important;">
+                                    <td style="border:none !important;">Bill No.</td>
+                                    <td colspan="2" style="border:none !important;">@Model.InventorySold.BillNo</td>
+                                    <td style="text-align:right; border:none !important;">
+                                        Registration No.:
+                                    </td>
+                                    <td style="border:none !important;">
+                                        @Model.InventorySold.StudentRegNo
+                                    </td>
+                                </tr>
+                                <tr style="border:none !important;">
+                                    <td style="border:none !important;">
+                                        Name:
+                                    </td>
+                                    <td colspan="4" style="border:none !important;">
+                                        @Model.InventorySold.StudentName
+                                    </td>
+                                </tr>
+                                <tr style="border:none !important;">
+                                    <td style="border:none !important;">Class:</td>
+                                    <td colspan="2" style="border:none !important;">@Model.InventorySold.ClassName</td>
+                                    <td style="text-align:right; border:none !important;">Section:</td>
+                                    <td style="border:none !important;">@Model.InventorySold.SectionName</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="form-group row col-sm-12">
+                        <table class="table table-bordered table-condensed unittable" id="ItemUnit">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th class="col-sm-4">Item</th>
+                                    <th class="col-sm-3">Quantity</th>
+                                    <th class="col-sm-3">Rate</th>
+                                    <th class="col-sm-1">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int i = 1; }
+                                @foreach (var item in Model.InventorySoldItems)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td class="col-sm-4">
+
+
+                                            <label>@item.ItemName</label>
+
+
+
+                                        </td>
+                                        <td class="col-sm-3 center-fix">
+                                            @item.Quantity @item.UnitName
+                                        </td>
+
+                                        <td class="col-sm-1 center-fix">
+                                            @item.Rate
+                                        </td>
+
+                                        <td class="col-sm-3 center-fix">
+                                            @item.Total
+                                        </td>
+                                    </tr>
+                                    i++;
+                                }
+                                <tr>
+                                    <td colspan="4" style="text-align:right">Total Amount:</td>
+                                    <td><b>Rs. @Model.InventorySold.TotalAmount </b></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                        </table>
+
+                    </div>
+                    @*<div class="form-group row">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">Total Amount</span>
+                                @*onblur="GetTotal(' + crowindex + ')"*@
+                                @*<input type="text" value="" class="form-control" />*@
+                                @*@Html.TextBox("TotalAmount", Model.InventorySold.TotalAmount, new { @class = "form-control", disabled = "disabled" })*@
+                            @*</div>
+                        </div>
+                    </div>*@
+                }
+                </div>
+            </div>
+        </div>
+</section>

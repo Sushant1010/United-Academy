@@ -1,0 +1,114 @@
+﻿@model United_IMS.Web.Models.SC_User
+
+@{
+    ViewBag.Title = "ChangePassword";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    int id = ViewBag.UserId;
+}
+
+<section class="content-header">
+    <h1>Change Password</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Profile", "Details", null, new { @class = "btn btn-xs btn-success"})</li></ol>
+</section>
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+
+            @using (Html.BeginForm("ChangePassword", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true)
+                <div class="col-sm-12 form-group col-sm-12">
+                    <div class="col-sm-2">
+                        @Html.Label("Old Password", new { @class = "control-label" })
+                        <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("OldPassword", "", new { @class = "form-control", @type = "password", id = "OldPassword" })
+                        <span class="text-danger" id="message"></span>
+                    </div>
+                    <input id="OldPs" value="@ViewBag.OldPassword" hidden />
+                </div>
+
+                <div class="col-sm-12 form-group">
+                    <div class="col-sm-2">
+                        @Html.Label("New Password", new { @class = "control-label" })
+                        <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @required = "required", @type = "password" })
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2">
+                        @Html.Label("Confirm Password", new { @class = "control-label" })
+                        <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("Confirm", "", new { @class = "form-control", @type = "password", id = "ConfirmPassword" })
+                        <span class="text-danger" id="Errormessage"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <hr />
+                    <div class="col-sm-2 p-0">
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" id="btn" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    $('#OldPassword').blur(function () {
+
+        if (document.getElementById('OldPassword').value == document.getElementById('OldPs').value) {
+            document.getElementById('message').style.color = '';
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('btn').disabled = false;
+        }
+        else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Incorrect Old Password';
+            document.getElementById('btn').disabled = true;
+        }
+    });
+
+
+    $('#Password').keyup(function () {
+        //function checkPassword() {
+        if (document.getElementById('Password').value == document.getElementById('ConfirmPassword').value) {
+            document.getElementById('Errormessage').style.color = '';
+            document.getElementById('Errormessage').innerHTML = '';
+            document.getElementById('btn').disabled = false;
+        }
+
+        else {
+            document.getElementById('Errormessage').style.color = 'red';
+            document.getElementById('Errormessage').innerHTML = 'Password mismatch';
+            document.getElementById('btn').disabled = true;
+        }
+    });
+
+    $('#ConfirmPassword').keyup(function () {
+        //function checkPassword() {
+        if (document.getElementById('Password').value == document.getElementById('ConfirmPassword').value) {
+            document.getElementById('Errormessage').style.color = '';
+            document.getElementById('Errormessage').innerHTML = '';
+            document.getElementById('btn').disabled = false;
+        }
+
+        else {
+            document.getElementById('Errormessage').style.color = 'red';
+            document.getElementById('Errormessage').innerHTML = 'Password mismatch';
+            document.getElementById('btn').disabled = true;
+        }
+    });
+</script>

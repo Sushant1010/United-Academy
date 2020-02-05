@@ -1,0 +1,192 @@
+﻿@model United_IMS.Web.Models.FA_AssetItem
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Asset Item Create</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+    <div class="box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssetName, " Asset Name", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.AssetName, new { @class = "form-control", required = "required", onchange = "checkName()" })
+                    <span class="text-danger" id="message"></span>
+                    @Html.ValidationMessageFor(model => model.AssetName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssetCode, "Asset Code", new { @class = "control -label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.AssetCode, new { @class = "form-control", required = "required", onchange = "checkCode()" })
+                    <span class="text-danger" id="message1"></span>
+                    @Html.ValidationMessageFor(model => model.AssetCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssetCategoryId, "Category", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.DropDownList("AssetCategoryId", null, "-- Select --", new { @class = "form-control select2", required = "required" })
+                </div>
+                <div class="col-sm-1">Warranty</div>
+                <div class="col-sm-2">
+
+                    @Html.RadioButton("IsWarranty", "Yes", false, new { onclick = "showdiv('Y')" }) <span>Yes &nbsp; &nbsp;</span>
+                    @Html.RadioButton("IsWarranty", "No", true, new { onclick = "showdiv('N')" }) <span>No</span>
+
+                </div>
+            </div>
+            <div id="Warranty"  style="display:none">
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.LifeSpan, "life(In Months) ", new { @class = "control -label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.LifeSpan, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.LifeSpan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.WarrentyDuration, "Warranty Duration ", new { @class = "control -label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.WarrentyDuration, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.WarrentyDuration, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.WarrentyIndate, "Warranty In Date ", new { @class = "control -label" })
+                </div>
+                
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">From</span>
+                        @Html.TextBox("FromDate", "", new { @class = "form-control EngDate", required = "required" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">From BS</span>
+                        @Html.TextBox("FromDateBS", "", new { @class = "form-control nepaliDate", required = "required" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">To</span>
+                        @Html.TextBox("ToDate", "", new { @class = "form-control EngDate", required = "required" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">To BS</span>
+                        @Html.TextBox("ToDateBS", "", new { @class = "form-control nepaliDate", required = "required" })
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+
+                }
+            </div>
+</div>
+</section>
+<script>
+    function showdiv(stype) {
+        if (stype == "Y") {
+            $("#Warranty").show();
+        }
+        else if (stype == "N") {
+            $("#Warranty").hide();
+        }
+    }
+   function checkName()
+    {
+       var AssetName = $("#AssetName").val();
+       var AssetName1 = $("#AssetName").val().toUpperCase();
+       
+        $.ajax({
+                url: "@Url.Action("GetAssetName", "Utility")",
+            type: "post",
+            data: { AName: AssetName},
+            success: function (response, textStatus, jqXHR) {
+               
+                //alert(response);
+                //$select.append(response);
+                var msg = "Asset Name Already Exist!!";
+                
+                    if (response == AssetName1) {
+                        alert(msg);
+                        $("#AssetName").val("");
+                    }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
+
+<script>
+   function checkCode()
+    {
+       var AssetCode = $("#AssetCode").val();
+       var AssetCode1 = $("#AssetCode").val().toUpperCase();
+       //alert(AssetCode);
+        $.ajax({
+                url: "@Url.Action("GetAssetCode", "Utility")",
+            type: "post",
+            data: { ACode: AssetCode},
+            success: function (response, textStatus, jqXHR) {
+                
+                //alert(response);
+                //$select.append(response);
+                var msg = "Asset Code Already Exist!!";
+                
+                    if (response == AssetCode1) {
+                        alert(msg);
+                        $("#AssetCode").val("");
+                    } 
+                
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>

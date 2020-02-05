@@ -1,0 +1,140 @@
+﻿@model United_IMS.Web.ViewModel.AssetTransferVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Create Details</h1>
+    <ol class="breadcrumb">
+    <li class="list">@Html.ActionLink("Edit", "Edit", "AssetTransfer",new {Id= Model.AssetTransferId }, new { @class = "btn btn-xs btn-success" })</li>
+    <li class="list">@Html.ActionLink("List", "Index",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+    <div class="box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.CategoryName, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssetName, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.AssetName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.AssetName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.OrganizationName, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.OrganizationName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.OrganizationName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.BranchName, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.BranchName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.BranchName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.LocationName, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.LocationName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.LocationName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.TransferDate, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.TransferDate, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.TransferDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.TransferDateBS, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.TransferDateBS, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.TransferDateBS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.Remarks, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.Remarks, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssignedTo, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.AssignedDate, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.AssignedDate, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.AssignedDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.IsReceived, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    <div class="checkbox">
+                        @Html.TextBoxFor(model => model.IsReceived)
+                        @Html.ValidationMessageFor(model => model.IsReceived, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.ReceivedBy, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.ReceivedBy, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.ReceivedBy, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.ReceivedDate, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.ReceivedDate, new { @class = "form-control", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.ReceivedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</section>

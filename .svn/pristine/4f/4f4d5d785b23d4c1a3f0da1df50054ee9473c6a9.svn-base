@@ -1,0 +1,55 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.InventoryVendorVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Vendor List</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+           Address
+        </th>
+        <th>
+           Phone
+        </th>
+        <th>Mobile</th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </td>
+
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.VendorId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+            @Html.ActionLink(" ", "Details", new { id = item.VendorId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.VendorId }, new { @class = "fa fa-trash-o text-danger", title = "Delete", onclick = "return confirm('Are you sure to Delete?')" })
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+</div>
+</section>

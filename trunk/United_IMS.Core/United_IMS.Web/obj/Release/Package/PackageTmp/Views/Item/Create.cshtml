@@ -1,0 +1,163 @@
+﻿@{
+	ViewBag.Title = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+	var Unitlist = (List<United_IMS.Web.ViewModel.UnitVM>)ViewBag.UnitList;
+	var data = "<option value=''>--Select-- </option>";
+	foreach (var a in Unitlist)
+	{
+		data += "<option value='" + a.UnitId + "'>" + a.UnitName + "</option>";
+	}
+
+	<input type="hidden" name="hddUnit" id="hddUnit" value="@data">
+}
+
+<section class="content-header">
+	<h1>Item Create</h1>
+	<ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+	<div class="box box-success">
+		<div class="box-body">
+			@using (Html.BeginForm())
+			{
+			@Html.AntiForgeryToken()
+
+
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+				<div class="form-group row">
+					<div class="col-sm-2">
+						@Html.Label("Category", new { @class = "control-label" })
+					</div>
+					<div class="col-sm-3">
+						@Html.DropDownList("CategoryId", null, "-- Select --", new { @class = "form-control", required = "required" })
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-2">
+						@Html.Label("Item Name", new { @class = "control-label" })
+					</div>
+					<div class="col-sm-3">
+						@Html.TextBox("ItemName","", new { @class = "form-control",required="required" })
+					</div>
+				</div>
+
+				@*<div class="form-group row">
+					<div class="col-sm-2">
+						@Html.Label("Item Code", new { @class = "control-label" })
+					</div>
+					<div class="col-sm-3">
+						@Html.TextBox("ItemCode","", new { @class = "form-control" })
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-2">
+						@Html.Label("Description", new { @class = "control-label" })
+					</div>
+					<div class="col-sm-3">
+						@Html.TextBox("ItemDescription", "", new { @class = "form-control" })
+					</div>
+				</div>*@
+
+				
+				<div class="form-group row">
+					<table class="table table-bordered table-condensed unittable" id="ItemUnit">
+						<thead>
+							<tr>
+								<th class="col-sm-4">Unit</th>
+								<th class="col-sm-3">Selling Price</th>
+								<th  class="col-sm-1">Is Default</th>
+								<th class="col-sm-3">Quantity Per</th>
+								<th  class="col-sm-1"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+
+								<td class="col-sm-4">
+									<input type="hidden" name="hddrowpindex" value="1" class="rowcount" />
+
+									<select class="form-control select2" name="UnitId-1" id="UnitId-1" required="required">
+										@foreach (var a in Unitlist)
+										{
+										<option value="@a.UnitId">@( a.UnitName )</option>
+										}
+									</select>
+									<span class="text-danger" id="userError"></span>
+								</td>
+								<td class="col-sm-3 center-fix" style="text-align:center;">
+									<input type="text" class="form-control" name="SellingPrice-1" id="SellingPrice-1" required="required" value="0" />
+								</td>
+
+								<td class="col-sm-1 center-fix" style="text-align:center;">
+									<input type="checkbox" name="IsDefault-1" id="IsDefault-1"/>
+								</td>
+
+								<td class="col-sm-3 center-fix" style="text-align:center;">
+									<input type="text" class="form-control" name="QuantityPer-1" id="QuantityPer-1" required="required" value="1" />
+								</td>
+								<td></td>
+							</tr>
+
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="5"><span onclick="addItem()" style="cursor:pointer;width:80px;" class="btn btn-primary"><i class="fa fa-plus" style="padding-right:5px;"></i>Add</span></td>
+							</tr>
+						</tfoot>
+					</table>
+
+				</div>
+
+				<div class="form-group row">
+					<div class="col-sm-offset-2 col-sm-10">
+						<input type="submit" value="Save" class="btn btn-success" />
+					</div>
+				</div>
+
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+    $(function () {
+        $(".unittable").on("click", "tr a", function (e) {
+            e.preventDefault();
+            if (confirm("Are you sure to remove?")) {
+                $(this).parents('tr').remove();
+
+            }
+        });
+    });
+
+    var crowindex =2; @*@(((List<ams.dms.Models.DW_TemplateStation>)ViewBag.Station).Count()+1);*@
+    function addItem() {
+        msg = '<tr>';
+
+        msg += '<td class="col-sm-4"><input type="hidden" name="hddrowpindex" value="'+crowindex+'" class="rowcount" />';
+        msg += '<select  class="' + crowindex + ' userinput" style="text-transform:uppercase; width:100%" name="UnitId-' + crowindex + '" id="UnitId-' + crowindex + '"  required="required" >';
+        msg += document.getElementById("hddUnit").value;
+        msg += ' </select>';
+        msg += '</td>';
+        msg += '<td class="col-sm-3 center-fix" style="text-align:center;">';
+        msg += '<input type="text" class="form-control" name="SellingPrice-' + crowindex + '" id="SellingPrice-' + crowindex + '" required="required" value="0" />';
+        msg += '</td>';
+        msg += ' <td class="col-sm-1 center-fix" style="text-align:center;"><input type="checkbox" name="IsDefault-' + crowindex + '" id="IsDefault-' + crowindex + '"/></td>';
+        msg += ' <td class="col-sm-3 center-fix" style="text-align:center;"><input type="text" class="form-control" name="QuantityPer-' + crowindex + '" id="QuantityPer-' + crowindex + '" required="required" value="1" /></td>';
+
+        msg += '<td class="col-sm-1 center-fix" style="text-align:center;"><a href="" class="btn" title="Remove"><span id="remove-' + crowindex + '"  style="cursor:pointer"><i class="fa fa-times"></i></span></a>';
+        msg += '&nbsp;<span id="perror-' + crowindex + '" style="display:none"><i class="fa fa-exclamation-triangle faa-exclamation-triangle animated"></i></span></td>';
+
+        msg += '</tr>';
+
+
+        $('table#ItemUnit  tbody').append(msg);
+        initializeSelectNew(crowindex);
+
+        crowindex++;
+    }
+</script>

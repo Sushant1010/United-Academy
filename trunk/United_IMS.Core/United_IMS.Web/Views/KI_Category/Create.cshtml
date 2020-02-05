@@ -1,0 +1,121 @@
+﻿@model United_IMS.Web.Models.KI_Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Category Create</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.CategoryName,"Category Name", new { @class = "control-label" })
+            </div>
+			<div class="col-sm-3">
+                @Html.TextBoxFor(model => model.CategoryName,  new { @class = "form-control", required = "required" , onchange = "checkCategoryName()" })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.CategoryCode, new { @class = "control-label" })
+            </div>
+			<div class="col-sm-3">
+                @Html.TextBoxFor(model => model.CategoryCode,"Category Code", new { @class = "form-control", required = "required" , onchange = "checkCategoryCode()" } )
+                @Html.ValidationMessageFor(model => model.CategoryCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group row">
+		<div class="col-sm-2">
+            @Html.LabelFor(model => model.OrganizationId, new { @class = "control-label" })
+            </div>
+			<div class="col-sm-3">
+                @Html.DropDownList("OrganizationId", null, "-- Select --", new { @class = "form-control", required = "required" })
+            </div>
+        </div>*@
+		
+
+        <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+
+}
+</div>
+</div>
+</section>
+<script>
+    function checkCategoryName()
+    {
+        var CategoryName = $("#CategoryName").val();
+        var CategoryName1 = $("#CategoryName").val().toUpperCase();
+
+        $.ajax({
+                url: "@Url.Action("GetCategoryName", "Utility")",
+            type: "post",
+            data: { ReName: CategoryName },
+            success: function (response, textStatus, jqXHR) {
+
+                //alert(response);
+                //$select.append(response);
+                var msg = "Category Name Already Exist!!";
+
+                if (response == CategoryName1) {
+                        alert(msg);
+                        $("#CategoryName").val("");
+                    }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
+<script>
+    function checkCategoryCode()
+    {
+        var CategoryCode = $("#CategoryCode").val();
+        var CategoryCode1 = $("#CategoryCode").val().toUpperCase();
+
+        $.ajax({
+                url: "@Url.Action("GetCategoryCode", "Utility")",
+            type: "post",
+            data: { ReName: CategoryCode },
+            success: function (response, textStatus, jqXHR) {
+
+                //alert(response);
+                //$select.append(response);
+                var msg = "Category Code Already Exist!!";
+
+                if (response == CategoryCode1) {
+                        alert(msg);
+                    $("#CategoryCode").val("");
+                    }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>

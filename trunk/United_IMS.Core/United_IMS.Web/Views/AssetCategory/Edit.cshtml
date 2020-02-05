@@ -1,0 +1,95 @@
+﻿@model United_IMS.Web.Models.FA_AssetCategory
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Asset Category Edit</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+    <div class="box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.AssetCategoryId)
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.CategoryName, " Category Name", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.CategoryCode, "Category Code", new { @class = "control -label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.CategoryCode, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.DepreciationMethodId, "Depreciation", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.DropDownList("DepreciationMethodId", null, "-- Select --", new { @class = "form-control", required = "required", onchange="GetDepreciation()" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.DepreciationRate, "Depreciation Rate", new { @class = "control -label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.DepreciationRate, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.DepreciationRate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+</section>
+<script>
+    function GetDepreciation(){
+        var depid = $("#DepreciationMethodId").val();
+
+        $.ajax({
+                url: "@Url.Action("GetDepreciationMethodId", "Utility")",
+            type: "post",
+            data: { dep: depid },
+            success: function (response, textStatus, jqXHR) {
+                var $select = $("#DepreciationRate").val(response);//district dropdown.
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                //alert("Something went wrong, Select Crew Type Again.");
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,70 @@
+﻿@model United_IMS.Web.ViewModel.AssetCategoryVM
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Asset Category Detail</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.CategoryName, " Category Name", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.CategoryCode, "Category Code", new { @class = "control -label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.CategoryCode, new { @class = "form-control", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.CategoryCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.DepreciationMethodId, "Depreciation", new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.MethodName, new { @class = "form-control", disabled = "disabled" })
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.DepreciationRate, "Depreciation Code", new { @class = "control -label" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.DepreciationRate, new { @class = "form-control", disabled = "disabled" })
+                        
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

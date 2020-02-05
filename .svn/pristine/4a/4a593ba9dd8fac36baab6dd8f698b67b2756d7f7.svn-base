@@ -1,0 +1,75 @@
+﻿@model United_IMS.Web.Models.INV_Vendor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Vendor Details</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("List", "Index",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+
+<section class="content">
+<div class="box box-success">
+    <div class="box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.VendorName, "Vendor Name", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.VendorName, new { @class = "form-control", disabled = "disabled" })
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.Address, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control", disabled = "disabled" })
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.Phone, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", disabled = "disabled" })
+
+                </div>
+            
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.Mobile, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", disabled = "disabled" })
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    @Html.LabelFor(model => model.PanNo, new { @class = "control-label" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.PanNo, new { @class = "form-control", disabled = "disabled" })
+
+                </div>
+            </div>
+
+
+
+        }
+    </div>
+</div>
+</section>

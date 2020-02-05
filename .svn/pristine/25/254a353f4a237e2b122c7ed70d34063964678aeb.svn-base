@@ -1,0 +1,83 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.AssetTransferVM>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Transfer History</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create",null,new{@class= "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+<table class="table table-condensed table-bordered" id="TableExport">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayName("Asset")
+        </th>
+        <th>
+            @Html.DisplayName("Organization")
+        </th>
+        <th>
+            @Html.DisplayName("Branch")
+        </th>
+        <th>
+            @Html.DisplayName("Location")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedTo)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </th>*@
+        
+    </tr>
+        </thead>
+
+@foreach (var item in Model) {
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BranchName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationName)
+            </td>
+            <td>
+                @(item.TransferDate != null ? ((DateTime)item.TransferDate).ToString("yyyy-MM-dd") + " AD" : "")
+                <br />
+                @(item.TransferDateBS + " BS")
+
+            </td>
+            @*
+            <td>
+                @Html.DisplayFor(modelItem => item.TransferDate)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            @*
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedDate)
+            </td>*@
+
+        </tr>
+    </tbody>
+    
+}
+
+</table>
+</div>
+</div>
+</section>

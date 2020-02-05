@@ -1,0 +1,68 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.UserVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>List</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create",null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+<div class="box box-success">
+<div class="box-body">
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.OrganizationId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.OrganizationId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAdmin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.UserId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+            @Html.ActionLink(" ", "Details", new { id = item.UserId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.UserId }, new { @class = "fa fa-trash-o text-danger", title = "Delete", onclick = "return confirm('Are you sure to Delete?')" })
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+</div>
+</section>

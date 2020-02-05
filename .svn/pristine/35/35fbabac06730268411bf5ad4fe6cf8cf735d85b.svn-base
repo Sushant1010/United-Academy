@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{292420D4-D435-4E25-B44B-1A927AEBB8C7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>United_IMS.Web</RootNamespace>
+    <AssemblyName>United_IMS.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\..\yetiattendancenew\YetiAttendance\YetiAttendance\bin\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AcademicBatchController.cs" />
+    <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\AssetItemController.cs" />
+    <Compile Include="Controllers\AssetCategoryController.cs" />
+    <Compile Include="Controllers\AssetPurchaseController.cs" />
+    <Compile Include="Controllers\AssetTransferController.cs" />
+    <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\DepreciationMethodController.cs" />
+    <Compile Include="Controllers\InventoryPurchaseController.cs" />
+    <Compile Include="Controllers\InventorySalesController.cs" />
+    <Compile Include="Controllers\InventoryVendorController.cs" />
+    <Compile Include="Controllers\AcademicClassController.cs" />
+    <Compile Include="Controllers\AcademicClassSectionController.cs" />
+    <Compile Include="Controllers\AcademicProgramController.cs" />
+    <Compile Include="Controllers\AcademicSectionController.cs" />
+    <Compile Include="Controllers\AcademicStudentController.cs" />
+    <Compile Include="Controllers\AcademicTeacherController.cs" />
+    <Compile Include="Controllers\AcademicYearController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\KCategoryController.cs" />
+    <Compile Include="Controllers\KIssueItemController.cs" />
+    <Compile Include="Controllers\KPurchaseController.cs" />
+    <Compile Include="Controllers\KUnitController.cs" />
+    <Compile Include="Controllers\KVendorController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SalesReportController.cs" />
+    <Compile Include="Controllers\StockItemController.cs" />
+    <Compile Include="Controllers\UnitController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UtilityController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ACD_Batch.cs" />
+    <Compile Include="Models\ACD_Class.cs" />
+    <Compile Include="Models\ACD_ClassSection.cs" />
+    <Compile Include="Models\ACD_Program.cs" />
+    <Compile Include="Models\ACD_Section.cs" />
+    <Compile Include="Models\ACD_Staff.cs" />
+    <Compile Include="Models\ACD_Student.cs" />
+    <Compile Include="Models\ACD_StudentClassSection.cs" />
+    <Compile Include="Models\FA_Asset.cs" />
+    <Compile Include="Models\FA_AssetCategory.cs" />
+    <Compile Include="Models\FA_AssetDepreciation.cs" />
+    <Compile Include="Models\FA_AssetItem.cs" />
+    <Compile Include="Models\FA_AssetTransfer.cs" />
+    <Compile Include="Models\FA_Branch.cs" />
+    <Compile Include="Models\FA_Demand.cs" />
+    <Compile Include="Models\FA_DemandList.cs" />
+    <Compile Include="Models\FA_DepreciationMethod.cs" />
+    <Compile Include="Models\FA_Location.cs" />
+    <Compile Include="Models\FA_Maintenance.cs" />
+    <Compile Include="Models\FA_Purchase.cs" />
+    <Compile Include="Models\FA_PurchaseItem.cs" />
+    <Compile Include="Models\FA_Vendor.cs" />
+    <Compile Include="Models\INV_PurchaseBill.cs" />
+    <Compile Include="Models\INV_PurchaseItem.cs" />
+    <Compile Include="Models\INV_SoldBill.cs" />
+    <Compile Include="Models\INV_SoldItem.cs" />
+    <Compile Include="Models\INV_StockItem.cs" />
+    <Compile Include="Models\INV_Vendor.cs" />
+    <Compile Include="Models\KI_Category.cs" />
+    <Compile Include="Models\KI_IssueItem.cs" />
+    <Compile Include="Models\KI_ItemUnit.cs" />
+    <Compile Include="Models\KI_PurchaseBill.cs" />
+    <Compile Include="Models\KI_PurchaseItem.cs" />
+    <Compile Include="Models\K_Unit.cs" />
+    <Compile Include="Models\K_Vendor.cs" />
+    <Compile Include="Models\MS_AcademicYear.cs" />
+    <Compile Include="Models\MS_Category.cs" />
+    <Compile Include="Models\MS_Department.cs" />
+    <Compile Include="Models\MS_Faculty.cs" />
+    <Compile Include="Models\MS_Item.cs" />
+    <Compile Include="Models\MS_ItemUnit.cs" />
+    <Compile Include="Models\MS_Organization.cs" />
+    <Compile Include="Models\MS_Unit.cs" />
+    <Compile Include="Models\SC_LoginHistory.cs" />
+    <Compile Include="Models\SC_Module.cs" />
+    <Compile Include="Models\SC_Role.cs" />
+    <Compile Include="Models\SC_User.cs" />
+    <Compile Include="Models\SC_UserRole.cs" />
+    <Compile Include="Models\united_ims.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AssetPurchaseRepo.cs" />
+    <Compile Include="Repository\AssetRepo.cs" />
+    <Compile Include="Repository\AssetItemRepo.cs" />
+    <Compile Include="Repository\AssetCategoryRepo.cs" />
+    <Compile Include="Repository\AssetTransferRepo.cs" />
+    <Compile Include="Repository\BranchRepo.cs" />
+    <Compile Include="Repository\FADepreciationMethodRepo.cs" />
+    <Compile Include="Repository\InventorySoldRepo .cs" />
+    <Compile Include="Repository\InventoryVendorRepo.cs" />
+    <Compile Include="Repository\AcademicStudentClassSectionRepo.cs" />
+    <Compile Include="Repository\InventoryPurchaseRepo.cs" />
+    <Compile Include="Repository\ItemUnitRepo.cs" />
+    <Compile Include="Repository\ItemRepo.cs" />
+    <Compile Include="Repository\KPurchaseRepo.cs" />
+    <Compile Include="Repository\KUnitRepo.cs" />
+    <Compile Include="Repository\KVendorRepo.cs" />
+    <Compile Include="Repository\LocationRepo.cs" />
+    <Compile Include="Repository\LoginRepo.cs" />
+    <Compile Include="Repository\ReportRepo.cs" />
+    <Compile Include="Repository\SessionRepo.cs" />
+    <Compile Include="Repository\StockItemRepo.cs" />
+    <Compile Include="Repository\UnitRepo.cs" />
+    <Compile Include="Repository\DepartmentRepo.cs" />
+    <Compile Include="Repository\CategoryRepo.cs" />
+    <Compile Include="Repository\AcademicYearRepo.cs" />
+    <Compile Include="Repository\AcademicClassSectionRepo.cs" />
+    <Compile Include="Repository\AcademicSectionRepo.cs" />
+    <Compile Include="Repository\AcademicClassRepo.cs" />
+    <Compile Include="Repository\AcademicProgramRepo.cs" />
+    <Compile Include="Repository\AcademicBatchRepo.cs" />
+    <Compile Include="Repository\AcademicTeacherRepo.cs" />
+    <Compile Include="Repository\AcademicStudentRepo.cs" />
+    <Compile Include="Repository\DbHelper.cs" />
+    <Compile Include="Repository\GetDropdown.cs" />
+    <Compile Include="Repository\UserRepo.cs" />
+    <Compile Include="Security\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Security\CustomMembership.cs" />
+    <Compile Include="Security\CustomMembershipUser.cs" />
+    <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="Security\CustomRole.cs" />
+    <Compile Include="ViewModel\AssetCategoryVM.cs" />
+    <Compile Include="ViewModel\AssetItemVM.cs" />
+    <Compile Include="ViewModel\AssetPurchaseVM.cs" />
+    <Compile Include="ViewModel\AssetTransferVM.cs" />
+    <Compile Include="ViewModel\AssetVM.cs" />
+    <Compile Include="ViewModel\BranchVM.cs" />
+    <Compile Include="ViewModel\DetailedSalesVM.cs" />
+    <Compile Include="ViewModel\FADepreciationMethodVM.cs" />
+    <Compile Include="ViewModel\InventorySaleVM.cs" />
+    <Compile Include="ViewModel\InventoryVendorVM .cs" />
+    <Compile Include="ViewModel\AcademicStudentClassSectionVM.cs" />
+    <Compile Include="ViewModel\AcademicClassSectionVM.cs" />
+    <Compile Include="ViewModel\AcademicSectionVM.cs" />
+    <Compile Include="ViewModel\AcademicClassVM.cs" />
+    <Compile Include="ViewModel\AcademicBatchVM.cs" />
+    <Compile Include="ViewModel\AcademicProgramVM.cs" />
+    <Compile Include="ViewModel\AcademicStudentVM.cs" />
+    <Compile Include="ViewModel\AcademicTeacherVM.cs" />
+    <Compile Include="ViewModel\Basic.cs" />
+    <Compile Include="ViewModel\CategoryVM.cs" />
+    <Compile Include="ViewModel\DepartmentVM.cs" />
+    <Compile Include="ViewModel\InventoryPurchaseVM.cs" />
+    <Compile Include="ViewModel\ItemDetailVM.cs" />
+    <Compile Include="ViewModel\ItemUnitVM.cs" />
+    <Compile Include="ViewModel\ItemVM.cs" />
+    <Compile Include="ViewModel\KPurchaseVM.cs" />
+    <Compile Include="ViewModel\KUnitVM.cs" />
+    <Compile Include="ViewModel\KVendorVM.cs" />
+    <Compile Include="ViewModel\LocationVM.cs" />
+    <Compile Include="ViewModel\SessionVM.cs" />
+    <Compile Include="ViewModel\SummarySalesVM.cs" />
+    <Compile Include="ViewModel\UnitVM.cs" />
+    <Compile Include="ViewModel\UserVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\AdminLTE.min.css" />
+    <Content Include="assets\css\bootstrap-datepicker.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\dataTables.bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ionicons.min.css" />
+    <Content Include="assets\css\nepali.datepicker.v2.2.min.css" />
+    <Content Include="assets\css\_all-skins.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\js\12nepali.datepicker.v2.2.min.js" />
+    <Content Include="assets\js\adminlte.min.js" />
+    <Content Include="assets\js\bootstrap-datepicker.min.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\customjavascript.js" />
+    <Content Include="assets\js\dataTables.bootstrap.min.js" />
+    <Content Include="assets\js\demo.js" />
+    <Content Include="assets\js\fastclick.js" />
+    <Content Include="assets\js\jquery.dataTables.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.slimscroll.min.js" />
+    <Content Include="assets\js\nepali.datepicker.v2.2.min.js" />
+    <Content Include="assets\plugins\iCheck\all.css" />
+    <Content Include="assets\plugins\iCheck\flat\aero%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\aero.css" />
+    <Content Include="assets\plugins\iCheck\flat\aero.png" />
+    <Content Include="assets\plugins\iCheck\flat\blue%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\blue.css" />
+    <Content Include="assets\plugins\iCheck\flat\blue.png" />
+    <Content Include="assets\plugins\iCheck\flat\flat%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\flat.css" />
+    <Content Include="assets\plugins\iCheck\flat\flat.png" />
+    <Content Include="assets\plugins\iCheck\flat\green%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\green.css" />
+    <Content Include="assets\plugins\iCheck\flat\green.png" />
+    <Content Include="assets\plugins\iCheck\flat\grey%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\grey.css" />
+    <Content Include="assets\plugins\iCheck\flat\grey.png" />
+    <Content Include="assets\plugins\iCheck\flat\orange%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\orange.css" />
+    <Content Include="assets\plugins\iCheck\flat\orange.png" />
+    <Content Include="assets\plugins\iCheck\flat\pink%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\pink.css" />
+    <Content Include="assets\plugins\iCheck\flat\pink.png" />
+    <Content Include="assets\plugins\iCheck\flat\purple%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\purple.css" />
+    <Content Include="assets\plugins\iCheck\flat\purple.png" />
+    <Content Include="assets\plugins\iCheck\flat\red%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\red.css" />
+    <Content Include="assets\plugins\iCheck\flat\red.png" />
+    <Content Include="assets\plugins\iCheck\flat\yellow%402x.png" />
+    <Content Include="assets\plugins\iCheck\flat\yellow.css" />
+    <Content Include="assets\plugins\iCheck\flat\yellow.png" />
+    <Content Include="assets\plugins\iCheck\flat\_all.css" />
+    <Content Include="assets\plugins\iCheck\futurico\futurico%402x.png" />
+    <Content Include="assets\plugins\iCheck\futurico\futurico.css" />
+    <Content Include="assets\plugins\iCheck\futurico\futurico.png" />
+    <Content Include="assets\plugins\iCheck\icheck.js" />
+    <Content Include="assets\plugins\iCheck\icheck.min.js" />
+    <Content Include="assets\plugins\iCheck\line\aero.css" />
+    <Content Include="assets\plugins\iCheck\line\blue.css" />
+    <Content Include="assets\plugins\iCheck\line\green.css" />
+    <Content Include="assets\plugins\iCheck\line\grey.css" />
+    <Content Include="assets\plugins\iCheck\line\line%402x.png" />
+    <Content Include="assets\plugins\iCheck\line\line.css" />
+    <Content Include="assets\plugins\iCheck\line\line.png" />
+    <Content Include="assets\plugins\iCheck\line\orange.css" />
+    <Content Include="assets\plugins\iCheck\line\pink.css" />
+    <Content Include="assets\plugins\iCheck\line\purple.css" />
+    <Content Include="assets\plugins\iCheck\line\red.css" />
+    <Content Include="assets\plugins\iCheck\line\yellow.css" />
+    <Content Include="assets\plugins\iCheck\line\_all.css" />
+    <Content Include="assets\plugins\iCheck\minimal\aero%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\aero.css" />
+    <Content Include="assets\plugins\iCheck\minimal\aero.png" />
+    <Content Include="assets\plugins\iCheck\minimal\blue%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\blue.css" />
+    <Content Include="assets\plugins\iCheck\minimal\blue.png" />
+    <Content Include="assets\plugins\iCheck\minimal\green%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\green.css" />
+    <Content Include="assets\plugins\iCheck\minimal\green.png" />
+    <Content Include="assets\plugins\iCheck\minimal\grey%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\grey.css" />
+    <Content Include="assets\plugins\iCheck\minimal\grey.png" />
+    <Content Include="assets\plugins\iCheck\minimal\minimal%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\minimal.css" />
+    <Content Include="assets\plugins\iCheck\minimal\minimal.png" />
+    <Content Include="assets\plugins\iCheck\minimal\orange%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\orange.css" />
+    <Content Include="assets\plugins\iCheck\minimal\orange.png" />
+    <Content Include="assets\plugins\iCheck\minimal\pink%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\pink.css" />
+    <Content Include="assets\plugins\iCheck\minimal\pink.png" />
+    <Content Include="assets\plugins\iCheck\minimal\purple%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\purple.css" />
+    <Content Include="assets\plugins\iCheck\minimal\purple.png" />
+    <Content Include="assets\plugins\iCheck\minimal\red%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\red.css" />
+    <Content Include="assets\plugins\iCheck\minimal\red.png" />
+    <Content Include="assets\plugins\iCheck\minimal\yellow%402x.png" />
+    <Content Include="assets\plugins\iCheck\minimal\yellow.css" />
+    <Content Include="assets\plugins\iCheck\minimal\yellow.png" />
+    <Content Include="assets\plugins\iCheck\minimal\_all.css" />
+    <Content Include="assets\plugins\iCheck\polaris\polaris%402x.png" />
+    <Content Include="assets\plugins\iCheck\polaris\polaris.css" />
+    <Content Include="assets\plugins\iCheck\polaris\polaris.png" />
+    <Content Include="assets\plugins\iCheck\square\aero%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\aero.css" />
+    <Content Include="assets\plugins\iCheck\square\aero.png" />
+    <Content Include="assets\plugins\iCheck\square\blue%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\blue.css" />
+    <Content Include="assets\plugins\iCheck\square\blue.png" />
+    <Content Include="assets\plugins\iCheck\square\green%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\green.css" />
+    <Content Include="assets\plugins\iCheck\square\green.png" />
+    <Content Include="assets\plugins\iCheck\square\grey%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\grey.css" />
+    <Content Include="assets\plugins\iCheck\square\grey.png" />
+    <Content Include="assets\plugins\iCheck\square\orange%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\orange.css" />
+    <Content Include="assets\plugins\iCheck\square\orange.png" />
+    <Content Include="assets\plugins\iCheck\square\pink%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\pink.css" />
+    <Content Include="assets\plugins\iCheck\square\pink.png" />
+    <Content Include="assets\plugins\iCheck\square\purple%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\purple.css" />
+    <Content Include="assets\plugins\iCheck\square\purple.png" />
+    <Content Include="assets\plugins\iCheck\square\red%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\red.css" />
+    <Content Include="assets\plugins\iCheck\square\red.png" />
+    <Content Include="assets\plugins\iCheck\square\square%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\square.css" />
+    <Content Include="assets\plugins\iCheck\square\square.png" />
+    <Content Include="assets\plugins\iCheck\square\yellow%402x.png" />
+    <Content Include="assets\plugins\iCheck\square\yellow.css" />
+    <Content Include="assets\plugins\iCheck\square\yellow.png" />
+    <Content Include="assets\plugins\iCheck\square\_all.css" />
+    <Content Include="CodeTemplates\AssemblyVersions.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.0.0.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.1.0.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.1.1.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.1.2.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.2.0.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.2.2.xml" />
+    <Content Include="CodeTemplates\PackageVersions5.2.3.xml" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CodeTemplates\ApiControllerEmpty\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiControllerEmpty\Controller.vb.t4" />
+    <Content Include="CodeTemplates\ApiControllerWithActions\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiControllerWithActions\Controller.vb.t4" />
+    <Content Include="CodeTemplates\ApiControllerWithContext\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiControllerWithContext\Controller.vb.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.asax.cs.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.asax.vb.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.cs.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.vb.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\WebApiConfig.cs.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\WebApiConfig.vb.t4" />
+    <Content Include="CodeTemplates\MvcArea\Area.cs.t4" />
+    <Content Include="CodeTemplates\MvcArea\Area.vb.t4" />
+    <Content Include="CodeTemplates\MvcArea\web.cs.t4" />
+    <Content Include="CodeTemplates\MvcArea\web.vb.t4" />
+    <Content Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerEmpty\Controller.vb.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithActions\Controller.vb.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\BundleConfig.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\BundleConfig.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Error.cshtml" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Error.vbhtml" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\FilterConfig.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\FilterConfig.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Global.asax.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Global.asax.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Global.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Global.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\RouteConfig.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\RouteConfig.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Site.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\Site.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\web.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\web.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\_Layout.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\_Layout.vb.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\_ViewStart.cs.t4" />
+    <Content Include="CodeTemplates\MvcFullDependencyCodeGenerator\_ViewStart.vb.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\Global.asax.cs.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\Global.asax.vb.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\Global.cs.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\Global.vb.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\RouteConfig.cs.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\RouteConfig.vb.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\web.cs.t4" />
+    <Content Include="CodeTemplates\MvcMinimalDependencyCodeGenerator\web.vb.t4" />
+    <Content Include="CodeTemplates\MvcViewWithoutModel\Empty.cs.t4" />
+    <Content Include="CodeTemplates\MvcViewWithoutModel\Empty.vb.t4" />
+    <Content Include="CodeTemplates\MvcViewWithoutModel\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\Create.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Create.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Delete.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Details.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Details.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Edit.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Edit.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Empty.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Empty.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\List.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\List.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.vb.include.t4" />
+    <Content Include="CodeTemplates\ODataControllerWithActions\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ODataControllerWithActions\Controller.vb.t4" />
+    <Content Include="CodeTemplates\ODataControllerWithContext\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ODataControllerWithContext\Controller.vb.t4" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\ionicons.eot" />
+    <Content Include="assets\fonts\ionicons.ttf" />
+    <Content Include="assets\fonts\ionicons.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\united_ims.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\AcademicBatch\Create.cshtml" />
+    <Content Include="Views\AcademicBatch\Delete.cshtml" />
+    <Content Include="Views\AcademicBatch\Details.cshtml" />
+    <Content Include="Views\AcademicBatch\Edit.cshtml" />
+    <Content Include="Views\AcademicBatch\Index.cshtml" />
+    <Content Include="Views\AcademicProgram\Create.cshtml" />
+    <Content Include="Views\AcademicProgram\Delete.cshtml" />
+    <Content Include="Views\AcademicProgram\Details.cshtml" />
+    <Content Include="Views\AcademicProgram\Edit.cshtml" />
+    <Content Include="Views\AcademicProgram\Index.cshtml" />
+    <Content Include="Views\AcademicClass\Create.cshtml" />
+    <Content Include="Views\AcademicClass\Delete.cshtml" />
+    <Content Include="Views\AcademicClass\Details.cshtml" />
+    <Content Include="Views\AcademicClass\Edit.cshtml" />
+    <Content Include="Views\AcademicClass\Index.cshtml" />
+    <Content Include="Views\AcademicSection\Create.cshtml" />
+    <Content Include="Views\AcademicSection\Delete.cshtml" />
+    <Content Include="Views\AcademicSection\Details.cshtml" />
+    <Content Include="Views\AcademicSection\Edit.cshtml" />
+    <Content Include="Views\AcademicSection\Index.cshtml" />
+    <Content Include="Views\AcademicClassSection\Create.cshtml" />
+    <Content Include="Views\AcademicClassSection\Delete.cshtml" />
+    <Content Include="Views\AcademicClassSection\Details.cshtml" />
+    <Content Include="Views\AcademicClassSection\Edit.cshtml" />
+    <Content Include="Views\AcademicClassSection\Index.cshtml" />
+    <Content Include="Views\AcademicStudent\Create.cshtml" />
+    <Content Include="Views\AcademicStudent\Delete.cshtml" />
+    <Content Include="Views\AcademicStudent\Details.cshtml" />
+    <Content Include="Views\AcademicStudent\Edit.cshtml" />
+    <Content Include="Views\AcademicStudent\Index.cshtml" />
+    <Content Include="Views\AcademicTeacher\Create.cshtml" />
+    <Content Include="Views\AcademicTeacher\Delete.cshtml" />
+    <Content Include="Views\AcademicTeacher\Details.cshtml" />
+    <Content Include="Views\AcademicTeacher\Edit.cshtml" />
+    <Content Include="Views\AcademicTeacher\Index.cshtml" />
+    <Content Include="Views\AcademicYear\Create.cshtml" />
+    <Content Include="Views\AcademicYear\Delete.cshtml" />
+    <Content Include="Views\AcademicYear\Details.cshtml" />
+    <Content Include="Views\AcademicYear\Edit.cshtml" />
+    <Content Include="Views\AcademicYear\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Unit\Create.cshtml" />
+    <Content Include="Views\Unit\Details.cshtml" />
+    <Content Include="Views\Unit\Edit.cshtml" />
+    <Content Include="Views\Unit\Index.cshtml" />
+    <Content Include="Views\Item\Create.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
+    <Content Include="Views\Unit\Delete.cshtml" />
+    <Content Include="Views\AcademicStudent\AssignSection.cshtml" />
+    <Content Include="Views\InventoryVendor\Create.cshtml" />
+    <Content Include="Views\InventoryVendor\Delete.cshtml" />
+    <Content Include="Views\InventoryVendor\Details.cshtml" />
+    <Content Include="Views\InventoryVendor\Edit.cshtml" />
+    <Content Include="Views\InventoryVendor\Index.cshtml" />
+    <Content Include="Views\InventorySales\Index.cshtml" />
+    <Content Include="Views\InventorySales\Details.cshtml" />
+    <Content Include="Views\InventorySales\Create.cshtml" />
+    <Content Include="Views\InventorySales\Edit.cshtml" />
+    <Content Include="Views\InventoryPurchase\Create.cshtml" />
+    <Content Include="Views\InventoryPurchase\Details.cshtml" />
+    <Content Include="Views\InventoryPurchase\Edit.cshtml" />
+    <Content Include="Views\InventoryPurchase\Index.cshtml" />
+    <Content Include="Views\AssetCategory\Create.cshtml" />
+    <Content Include="Views\AssetCategory\Delete.cshtml" />
+    <Content Include="Views\AssetCategory\Details.cshtml" />
+    <Content Include="Views\AssetCategory\Edit.cshtml" />
+    <Content Include="Views\AssetCategory\Index.cshtml" />
+    <Content Include="Views\Branch\Create.cshtml" />
+    <Content Include="Views\Branch\Delete.cshtml" />
+    <Content Include="Views\Branch\Details.cshtml" />
+    <Content Include="Views\Branch\Edit.cshtml" />
+    <Content Include="Views\Branch\Index.cshtml" />
+    <Content Include="Views\DepreciationMethod\Create.cshtml" />
+    <Content Include="Views\DepreciationMethod\Delete.cshtml" />
+    <Content Include="Views\DepreciationMethod\Details.cshtml" />
+    <Content Include="Views\DepreciationMethod\Edit.cshtml" />
+    <Content Include="Views\DepreciationMethod\Index.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
+    <Content Include="Views\Report\DetailedSummarySalesReport.cshtml" />
+    <Content Include="Views\Report\SummarySalesReport.cshtml" />
+    <Content Include="Views\AssetItem\Create.cshtml" />
+    <Content Include="Views\AssetItem\Delete.cshtml" />
+    <Content Include="Views\AssetItem\Details.cshtml" />
+    <Content Include="Views\AssetItem\Edit.cshtml" />
+    <Content Include="Views\AssetItem\Index.cshtml" />
+    <Content Include="Views\Asset\Index.cshtml" />
+    <Content Include="Views\Asset\Details.cshtml" />
+    <Content Include="Views\Asset\Create.cshtml" />
+    <Content Include="Views\Asset\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Views\AssetPurchase\Create.cshtml" />
+    <Content Include="Views\AssetPurchase\Edit.cshtml" />
+    <Content Include="Views\AssetPurchase\Index.cshtml" />
+    <Content Include="Views\AssetPurchase\Details.cshtml" />
+    <Content Include="Views\AssetTransfer\Create.cshtml" />
+    <Content Include="Views\AssetTransfer\Index.cshtml" />
+    <Content Include="Views\AssetTransfer\Details.cshtml" />
+    <Content Include="Views\AssetTransfer\Edit.cshtml" />
+    <Content Include="Views\InventorySales\BulkCreate.cshtml" />
+    <Content Include="Views\StockItem\Index.cshtml" />
+    <Content Include="Views\KUnit\Create.cshtml" />
+    <Content Include="Views\KUnit\Delete.cshtml" />
+    <Content Include="Views\KUnit\Details.cshtml" />
+    <Content Include="Views\KUnit\Edit.cshtml" />
+    <Content Include="Views\KUnit\Index.cshtml" />
+    <Content Include="Views\KVendor\Create.cshtml" />
+    <Content Include="Views\KVendor\Delete.cshtml" />
+    <Content Include="Views\KVendor\Details.cshtml" />
+    <Content Include="Views\KVendor\Edit.cshtml" />
+    <Content Include="Views\KVendor\index.cshtml" />
+    <Content Include="Views\KCategory\Create.cshtml" />
+    <Content Include="Views\KCategory\Delete.cshtml" />
+    <Content Include="Views\KCategory\Details.cshtml" />
+    <Content Include="Views\KCategory\Edit.cshtml" />
+    <Content Include="Views\KCategory\Index.cshtml" />
+    <Content Include="Views\KIssueItem\Create.cshtml" />
+    <Content Include="Views\KIssueItem\Delete.cshtml" />
+    <Content Include="Views\KIssueItem\Details.cshtml" />
+    <Content Include="Views\KIssueItem\Edit.cshtml" />
+    <Content Include="Views\KIssueItem\Index.cshtml" />
+    <Content Include="Views\KPurchase\Create.cshtml" />
+    <Content Include="Views\KPurchase\Details.cshtml" />
+    <Content Include="Views\KPurchase\Edit.cshtml" />
+    <Content Include="Views\KPurchase\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Stock\" />
+    <Folder Include="Views\Utlity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>19278</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19278/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

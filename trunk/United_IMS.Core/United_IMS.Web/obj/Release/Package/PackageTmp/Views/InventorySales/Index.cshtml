@@ -1,0 +1,225 @@
+﻿@model IEnumerable<United_IMS.Web.ViewModel.InventorySoldVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>Sales List</h1>
+    <ol class="breadcrumb"><li class="list">@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-xs btn-success" })</li></ol>
+</section>
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            @using (Html.BeginForm())
+            {
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">From</span>
+                        @Html.TextBox("FromDate", "", new { @class = "form-control EngDate" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">From BS</span>
+                        @Html.TextBox("FromDateBS", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">To</span>
+                        @Html.TextBox("ToDate", "", new { @class = "form-control EngDate" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">To BS</span>
+                        @Html.TextBox("ToDateBS", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Bill No</span>
+                        @Html.TextBox("BillNo", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">Group No</span>
+                        @Html.TextBox("GroupNo", "", new { @class = "form-control" })
+                    </div>
+
+                </div>
+                <div class="col-sm-1">Is Staff</div>
+                <div class="col-sm-2">
+
+                    @Html.RadioButton("IsStaff", "Yes", false, new { onclick = "showdiv('Y')" }) <span>Yes</span>
+                    @Html.RadioButton("IsStaff", "No", false, new { onclick = "showdiv('N')" }) <span>No</span>
+                    @Html.RadioButton("IsStaff", "Both", true, new { onclick = "showdiv('B')" }) <span>Both</span>
+
+                </div>
+
+
+                <div class="col-sm-3" id="Staff">
+                    <div class="input-group">
+                        <span class="input-group-addon">Staff</span>
+                        @Html.DropDownList("StaffId", null, "-- Select --", new { @class = "form-control select2 StaffId" })
+
+                        @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                    </div>
+                </div>
+
+            </div>
+                <div class="form-group row" id="Student">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Batch</span>
+                            @Html.DropDownList("BatchId", null, "-- Select --", new { @class = "form-control select2 BatchId" })
+
+                            @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Class</span>
+                            @Html.DropDownList("ClassId", null, "-- Select --", new { @class = "form-control select2 ClassId" })
+
+                            @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Section</span>
+                            @Html.DropDownList("SectionId", null, "-- Select --", new { @class = "form-control select2 SectionId" })
+
+                            @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Student</span>
+                            @Html.DropDownList("StudentId", null, "-- Select --", new { @class = "form-control select2 StudentId" })
+
+                            @*@Html.RadioButton("IsStaff", "Both", true) <span>Both</span>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-sm-1"><input type="submit" class="btn btn-primary" value="Search" /></div>
+                </div>
+            }
+        </div>
+        <div class="box-body">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr class="btn-primary">
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Bill Date
+                        </th>
+                        <th>
+                            BillNo
+                        </th>
+                        <th>Group No</th>
+                        <th>Is Staff</th>
+                        <th>Amount</th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        decimal amt = 0;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.IsStaff == true)
+                                {
+                                    <span>[ @Html.DisplayFor(modelItem => item.StaffNo) ] - @Html.DisplayFor(modelItem => item.StaffName) </span>
+                                }
+                                else
+                                {
+                                    <span>[ @Html.DisplayFor(modelItem => item.StudentRegNo) ] - @Html.DisplayFor(modelItem => item.StudentName) </span>
+                                }
+
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BillDateBS) <br />
+                                @Html.DisplayFor(modelItem => item.BillDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem=>item.BillNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GroupNo)
+                            </td>
+                            <td>
+                                @if (item.IsStaff != null && (bool)item.IsStaff == true)
+                                {
+                                    <label>Staff</label>
+                                }
+                                else
+                                {
+                                    <label>Student</label>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TotalAmount)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.SoldBillId }, new { @class = "fa fa-pencil text-primary", title = "Edit" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.SoldBillId }, new { @class = "fa fa-list text-success", title = "Details" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.SoldBillId }, new { @class = "fa fa-trash-o text-danger", title = "Delete", onclick = "return confirm('Are you sure to Delete?')" })
+                            </td>
+                        </tr>
+                        amt += item.TotalAmount == null?0: (Decimal)item.TotalAmount;
+                    }
+                </tbody>
+                @if (Model.Count() > 0)
+                {
+                <tfoot>
+                    <tr>
+                        <td colspan="4"></td>
+                        <th><strong>Total Amount: </strong></th>
+                        <th>@amt</th>
+                        <td></td>
+                    </tr>
+
+                </tfoot>
+                }
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    function showdiv(stype)
+    {
+        if (stype == "Y")
+        {
+            $("#Staff").show();
+            $("#Student").hide();
+        }
+        else if (stype == "N")
+        {
+            $("#Staff").hide();
+            $("#Student").show();
+        }
+        else
+        {
+            $("#Staff").show();
+            $("#Student").show();
+        }
+
+    }
+</script>
